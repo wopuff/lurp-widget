@@ -1,39 +1,74 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Lurp Widgets
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+A Flutter package to display interactive, read-only polls and thought posts integrated with the Lurp ecosystem.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- **Read-Only Selection Polls**: Display poll options with pre-calculated vote counts and percentage layouts.
+- **Slider Polls**: Display a sliding scale with average ratings and standard deviation markers.
+- **Rating Polls**: Pixel-perfect star-clipped ratings showing precise average ratings.
+- **Thought Posts**: Clean text layout blocks for displaying content or comments.
+- **API Integrated Loader**: Easy fetching and presentation using the `LurpPostWidget`.
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Add the dependency to your `pubspec.yaml`:
+
+```yaml
+dependencies:
+  lurp: ^0.0.1
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+### 1. Initialize Configuration
+
+Before rendering any widgets, initialize Lurp with your API key:
 
 ```dart
-const like = 'sample';
+import 'package:lurp/lurp.dart';
+
+void main() {
+  Lurp.initialize(
+    apiKey: 'your-api-key-here',
+    isProd: true, // Set to false to use the staging/development environment
+  );
+  runApp(const MyApp());
+}
+```
+
+### 2. Display a Poll / Post Widget
+
+Embed `LurpPostWidget` anywhere in your tree to load and display a post by its ID:
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:lurp/lurp.dart';
+
+class MyPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Poll Stats')),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: LurpPostWidget(
+            postId: 'your-post-id',
+            onCreatorTap: (creator) {
+              print('Tapped creator: ${creator.username}');
+            },
+            onShareTap: (post) {
+              print('Sharing post: ${post.fullUrl}');
+            },
+          ),
+        ),
+      ),
+    );
+  }
+}
 ```
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+For more information, visit the homepage at [lurp.it](https://www.lurp.it/en).
