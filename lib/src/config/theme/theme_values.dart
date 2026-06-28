@@ -22,12 +22,4 @@ class ThemeValues {
   // common theme values
   static const visualDensity = VisualDensity.compact;
   static const materialTapTargetSize = MaterialTapTargetSize.shrinkWrap;
-
-  // page transitions
-  static const pageTransitionsTheme = PageTransitionsTheme(
-    builders: {
-      TargetPlatform.android: CupertinoPageTransitionsBuilder(),
-      TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-    },
-  );
 }

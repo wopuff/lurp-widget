@@ -1,4 +1,4 @@
-import 'package:lurp/src/config/logger/logger.dart';
+import 'package:lurp/src/config/logger.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class UrlLauncherUtils {

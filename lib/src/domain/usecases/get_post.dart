@@ -1,4 +1,4 @@
-import 'package:lurp/src/config/logger/logger.dart';
+import 'package:lurp/src/config/logger.dart';
 import 'package:lurp/src/domain/entities/post.dart';
 import 'package:lurp/src/domain/repositories/post_repository.dart';
 

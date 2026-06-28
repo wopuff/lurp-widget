@@ -1,5 +1,5 @@
 import 'package:lurp/src/core/entities/return_data.dart';
-import 'package:lurp/src/users/domain/entities/user.dart';
+import 'package:lurp/src/core/entities/user.dart';
 
 class UsernameFormatUtils {
   static const _minLength = User.minUsernameLength;

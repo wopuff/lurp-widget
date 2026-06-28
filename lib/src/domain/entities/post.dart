@@ -1,6 +1,6 @@
-import 'package:lurp/src/config/links.dart';
+import 'package:lurp/src/config/lurp_config.dart';
 import 'package:lurp/src/core/misc/post_type.dart';
-import 'package:lurp/src/media/domain/media_entity.dart';
+import 'package:lurp/src/core/entities/media_entity.dart';
 import 'package:lurp/src/domain/entities/selection.dart';
 import 'package:lurp/src/domain/entities/ranking.dart';
 import 'package:lurp/src/domain/entities/rating.dart';
@@ -120,7 +120,7 @@ class Post {
   String get path => '/p/$id';
 
   /// The absolute URL for the post.
-  String get fullUrl => '${Links.currentBaseUrl}/p/$id';
+  String get fullUrl => '${Lurp.baseUrl}/p/$id';
 
   /// Returns true if this is a plain text/thought post.
   bool get isThought => type == thoughtType && thought != null;

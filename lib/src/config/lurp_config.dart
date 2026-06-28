@@ -1,5 +1,4 @@
 import 'package:lurp/src/config/api_client.dart';
-import 'package:lurp/src/config/links.dart';
 
 /// Configuration entry point for the Lurp library.
 class Lurp {
@@ -9,6 +8,7 @@ class Lurp {
   /// flag to toggle between production and staging environments (defaults to true).
   static void initialize({required String apiKey, bool isProd = true}) {
     ApiClient.initialize(apiKey: apiKey, isProd: isProd);
-    Links.setProdMode(isProd);
   }
+
+  static String baseUrl = 'https://www.lurp.it';
 }

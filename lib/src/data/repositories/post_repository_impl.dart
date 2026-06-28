@@ -1,5 +1,5 @@
 import 'package:lurp/src/config/api_client.dart';
-import 'package:lurp/src/config/logger/logger.dart';
+import 'package:lurp/src/config/logger.dart';
 import 'package:lurp/src/data/models/post_model.dart';
 import 'package:lurp/src/domain/repositories/post_repository.dart';
 import 'package:lurp/src/core/entities/common.dart';

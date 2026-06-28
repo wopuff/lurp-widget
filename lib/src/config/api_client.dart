@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:lurp/src/config/logger/logger.dart';
+import 'package:lurp/src/config/logger.dart';
 
 class ApiClient {
   ApiClient._({required this.apiKey, bool isProd = true})

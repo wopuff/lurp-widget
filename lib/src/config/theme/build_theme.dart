@@ -19,7 +19,6 @@ ThemeData buildTheme(ColorScheme colors) {
     materialTapTargetSize: ThemeValues.materialTapTargetSize,
     primaryColor: colors.primary,
     fontFamily: ThemeValues.textFont,
-    pageTransitionsTheme: ThemeValues.pageTransitionsTheme,
     shadowColor: Colors.transparent,
     applyElevationOverlayColor: false,
     useMaterial3: true,
