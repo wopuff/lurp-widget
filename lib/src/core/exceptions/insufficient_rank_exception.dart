@@ -1,7 +1,6 @@
 class InsufficientRankException implements Exception {
-  final String message;
-
   InsufficientRankException([this.message = 'User rank is too low.']);
+  final String message;
 
   @override
   String toString() => 'InSufficientRankException: $message';

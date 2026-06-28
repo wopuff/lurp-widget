@@ -1,13 +1,6 @@
 import 'package:flutter/material.dart';
 
 class CustomDivider extends StatelessWidget {
-  final bool vertical;
-  final double thickness;
-  final double height;
-  final double width;
-  final Color? color;
-  final EdgeInsets padding;
-
   const CustomDivider({
     super.key,
     this.vertical = false,
@@ -17,6 +10,12 @@ class CustomDivider extends StatelessWidget {
     this.color,
     this.padding = EdgeInsets.zero,
   });
+  final bool vertical;
+  final double thickness;
+  final double height;
+  final double width;
+  final Color? color;
+  final EdgeInsets padding;
 
   @override
   Widget build(BuildContext context) {

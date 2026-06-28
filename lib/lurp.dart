@@ -1,6 +1,6 @@
 /// The Lurp library provides interactive widgets, models, and entities
 /// for embedding customizable posts, comments, and polls.
-library lurp;
+library;
 
 export 'src/comments/domain/entities/comment.dart';
 export 'src/config/lurp_config.dart';

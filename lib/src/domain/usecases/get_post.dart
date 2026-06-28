@@ -3,9 +3,8 @@ import 'package:lurp/src/domain/entities/post.dart';
 import 'package:lurp/src/domain/repositories/post_repository.dart';
 
 class GetPost {
-  final PostRepository repository;
-
   GetPost({required this.repository});
+  final PostRepository repository;
 
   Future<Post?> call(String postId) async {
     try {

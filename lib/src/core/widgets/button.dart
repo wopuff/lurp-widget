@@ -2,20 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:lurp/src/core/utils/color_utils.dart';
 
 class CustomButton extends StatelessWidget {
-  final VoidCallback? action;
-  final String? text;
-  final bool isBackButton;
-  final Color? backgroundColor;
-  final Color? disabledBackgroundColor;
-  final Color? textColor;
-  final double borderRadius;
-  final EdgeInsets? padding;
-  final FontWeight? fontWeight;
-  final Color? borderColor;
-  final double? borderWidth;
-  final Size? fixedSize;
-  final Size? minSize;
-
   const CustomButton({
     super.key,
     this.action,
@@ -32,6 +18,19 @@ class CustomButton extends StatelessWidget {
     this.fixedSize,
     this.minSize,
   });
+  final VoidCallback? action;
+  final String? text;
+  final bool isBackButton;
+  final Color? backgroundColor;
+  final Color? disabledBackgroundColor;
+  final Color? textColor;
+  final double borderRadius;
+  final EdgeInsets? padding;
+  final FontWeight? fontWeight;
+  final Color? borderColor;
+  final double? borderWidth;
+  final Size? fixedSize;
+  final Size? minSize;
 
   @override
   Widget build(BuildContext context) {

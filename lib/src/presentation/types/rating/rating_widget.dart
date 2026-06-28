@@ -5,9 +5,8 @@ import 'package:lurp/src/domain/entities/rating.dart';
 import 'package:lurp/src/presentation/widgets/animated_stats.dart';
 
 class RatingWidget extends StatelessWidget {
-  final Post post;
-
   const RatingWidget({super.key, required this.post});
+  final Post post;
 
   RatingPoll get poll => post.rating!;
 
@@ -105,9 +104,8 @@ class RatingWidget extends StatelessWidget {
 }
 
 class StarArtworkClipper extends CustomClipper<Rect> {
-  final double fillFactor;
-
   StarArtworkClipper({required this.fillFactor});
+  final double fillFactor;
 
   @override
   Rect getClip(Size size) {

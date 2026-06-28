@@ -2,6 +2,49 @@ import 'package:lurp/src/config/links.dart';
 
 /// Represents a user within the Lurp system.
 class User {
+  /// Creates a new [User] instance.
+  User({
+    required this.uid,
+    required this.username,
+    required this.flatUsername,
+    this.bio,
+    this.rank,
+    this.email,
+    this.createdAt,
+    this.termsAcceptedAt,
+  });
+
+  /// Factory constructor to create an empty [User] template with optional parameter overrides.
+  factory User.fromEmpty({
+    String? uid,
+    String? username,
+    String? flatUsername,
+    String? email,
+    DateTime? createdAt,
+    DateTime? termsUpdatedAt,
+    String? rank,
+  }) {
+    return User(
+      uid: uid ?? '',
+      username: username ?? '',
+      flatUsername: flatUsername ?? '',
+      email: email,
+      createdAt: createdAt,
+      termsAcceptedAt: termsUpdatedAt,
+      rank: rank,
+    );
+  }
+
+  /// Factory constructor to create an unknown placeholder user.
+  factory User.unknown() {
+    return User(
+      uid: unknownUid,
+      username: unknownUsername,
+      flatUsername: unknownUsername,
+      rank: defaultRank,
+    );
+  }
+
   /// The unique identifier of the user.
   final String uid;
 
@@ -25,18 +68,6 @@ class User {
 
   /// The date and time when this user accepted the platform's terms of service.
   final DateTime? termsAcceptedAt;
-
-  /// Creates a new [User] instance.
-  User({
-    required this.uid,
-    required this.username,
-    required this.flatUsername,
-    this.bio,
-    this.rank,
-    this.email,
-    this.createdAt,
-    this.termsAcceptedAt,
-  });
 
   /// Whether the user has at least silenced rank privileges.
   bool get hasSilenced =>
@@ -96,37 +127,6 @@ class User {
     'moderator',
     'admin',
   ];
-
-  /// Factory constructor to create an empty [User] template with optional parameter overrides.
-  factory User.fromEmpty({
-    String? uid,
-    String? username,
-    String? flatUsername,
-    String? email,
-    DateTime? createdAt,
-    DateTime? termsUpdatedAt,
-    String? rank,
-  }) {
-    return User(
-      uid: uid ?? '',
-      username: username ?? '',
-      flatUsername: flatUsername ?? '',
-      email: email,
-      createdAt: createdAt,
-      termsAcceptedAt: termsUpdatedAt,
-      rank: rank,
-    );
-  }
-
-  /// Factory constructor to create an unknown placeholder user.
-  factory User.unknown() {
-    return User(
-      uid: unknownUid,
-      username: unknownUsername,
-      flatUsername: unknownUsername,
-      rank: defaultRank,
-    );
-  }
 
   /// Creates a copy of this user with the given fields replaced by new values.
   User copyWith({

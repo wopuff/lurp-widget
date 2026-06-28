@@ -4,16 +4,6 @@ import 'package:lurp/src/core/utils/string_utils.dart';
 import 'package:lurp/src/core/widgets/outline.dart';
 
 class PollOptionButton extends StatelessWidget {
-  final bool isActive;
-  final double buttonWidth;
-  final double? buttonHeight;
-  final String text;
-  final Color? optionColor;
-  final double proportion;
-  final VoidCallback? onPressed;
-  final bool singleColumn;
-  final bool showBorder;
-
   const PollOptionButton({
     super.key,
     required this.isActive,
@@ -26,6 +16,15 @@ class PollOptionButton extends StatelessWidget {
     this.singleColumn = false,
     this.showBorder = false,
   });
+  final bool isActive;
+  final double buttonWidth;
+  final double? buttonHeight;
+  final String text;
+  final Color? optionColor;
+  final double proportion;
+  final VoidCallback? onPressed;
+  final bool singleColumn;
+  final bool showBorder;
 
   double get fontSize {
     double fontSize = 17;

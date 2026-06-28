@@ -5,9 +5,8 @@ import 'package:lurp/src/domain/entities/post.dart';
 import 'package:lurp/src/presentation/types/selection/poll_option_button.dart';
 
 class PollOptionsWidget extends StatelessWidget {
-  final Post post;
-
   const PollOptionsWidget({super.key, required this.post});
+  final Post post;
 
   SelectionPoll get poll => post.selection!;
   List<PollOption> get options => post.selection!.options;

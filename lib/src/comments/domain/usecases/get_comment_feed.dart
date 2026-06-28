@@ -5,9 +5,8 @@ import 'package:lurp/src/comments/domain/repositories/comment_repository.dart';
 import 'package:lurp/src/domain/entities/post.dart';
 
 class GetCommentFeed {
-  final CommentRepository repository;
-
   GetCommentFeed({required this.repository});
+  final CommentRepository repository;
 
   /// Fetch a page of comments
   Future<CommentsFeed> call(Post post, String? cursor) async {

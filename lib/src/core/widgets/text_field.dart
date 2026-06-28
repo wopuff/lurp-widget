@@ -4,28 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:lurp/src/core/entities/common.dart';
 
 class CustomTextField extends StatelessWidget {
-  final TextEditingController controller;
-  final String hintText;
-  final bool obscureText;
-  final int? maxLength;
-  final TextInputType textInputType;
-  final TextCapitalization textCapitalization;
-  final bool autoFocus;
-  final void Function(String)? onChange;
-  final Color? backgroundColor;
-  final Color? selectionColor;
-  final Color? textColor;
-  final Color? cursorColor;
-  final EdgeInsets? padding;
-  final FocusNode? focusNode;
-  final bool allowEnter;
-  final Border? border;
-  final BorderRadius? borderRadius;
-  final int? maxLines;
-  final double? height;
-  final double? minHeight;
-  final bool enabled;
-
   const CustomTextField({
     super.key,
     required this.controller,
@@ -50,6 +28,27 @@ class CustomTextField extends StatelessWidget {
     this.minHeight,
     this.enabled = true,
   });
+  final TextEditingController controller;
+  final String hintText;
+  final bool obscureText;
+  final int? maxLength;
+  final TextInputType textInputType;
+  final TextCapitalization textCapitalization;
+  final bool autoFocus;
+  final void Function(String)? onChange;
+  final Color? backgroundColor;
+  final Color? selectionColor;
+  final Color? textColor;
+  final Color? cursorColor;
+  final EdgeInsets? padding;
+  final FocusNode? focusNode;
+  final bool allowEnter;
+  final Border? border;
+  final BorderRadius? borderRadius;
+  final int? maxLines;
+  final double? height;
+  final double? minHeight;
+  final bool enabled;
 
   @override
   Widget build(BuildContext context) {

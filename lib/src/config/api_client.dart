@@ -4,6 +4,21 @@ import 'package:flutter/foundation.dart';
 import 'package:lurp/src/config/logger/logger.dart';
 
 class ApiClient {
+  ApiClient._({required this.apiKey, bool isProd = true})
+    : baseUrl = isProd ? 'https://api.lurp.it/' : 'https://dev.api.lurp.it/' {
+    _dio = Dio(
+      BaseOptions(
+        baseUrl: baseUrl,
+        connectTimeout: const Duration(seconds: 12),
+        receiveTimeout: const Duration(seconds: 10),
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Platform': _platformHeader,
+          'X-Lurp-API-Key': apiKey,
+        },
+      ),
+    );
+  }
   static ApiClient? _instance;
 
   static ApiClient get instance {
@@ -24,22 +39,6 @@ class ApiClient {
   late final Dio _dio;
 
   static const _platformHeader = kIsWeb ? 'web' : 'flutter';
-
-  ApiClient._({required this.apiKey, bool isProd = true})
-    : baseUrl = isProd ? 'https://api.lurp.it/' : 'https://dev.api.lurp.it/' {
-    _dio = Dio(
-      BaseOptions(
-        baseUrl: baseUrl,
-        connectTimeout: const Duration(seconds: 12),
-        receiveTimeout: const Duration(seconds: 10),
-        headers: {
-          'Content-Type': 'application/json',
-          'X-Platform': _platformHeader,
-          'X-Lurp-API-Key': apiKey,
-        },
-      ),
-    );
-  }
 
   /// Static delegators for get and post
   static Future<Response> get(

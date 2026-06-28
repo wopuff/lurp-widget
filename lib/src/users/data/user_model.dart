@@ -2,18 +2,6 @@ import 'package:lurp/src/config/logger/logger.dart';
 import 'package:lurp/src/core/entities/common.dart';
 
 class UserModel {
-  // public data
-  final String uid;
-  final String username;
-  final String flatUsername;
-  final String? bio;
-
-  // private data
-  final String? rank;
-  final String? email;
-  final DateTime? createdAt;
-  final DateTime? termsAcceptedAt;
-
   UserModel({
     required this.uid,
     required this.username,
@@ -24,21 +12,6 @@ class UserModel {
     this.createdAt,
     this.termsAcceptedAt,
   });
-
-  User toEntity() {
-    final bio = (this.bio?.trim().isEmpty ?? true) ? null : this.bio?.trim();
-
-    return User(
-      uid: uid,
-      username: username,
-      flatUsername: flatUsername,
-      bio: bio,
-      email: email,
-      createdAt: createdAt,
-      rank: rank,
-      termsAcceptedAt: termsAcceptedAt,
-    );
-  }
 
   factory UserModel.fromData(Map<String, dynamic> data) {
     try {
@@ -68,6 +41,32 @@ class UserModel {
       username: User.unknownUsername,
       flatUsername: User.unknownUsername,
       rank: User.defaultRank,
+    );
+  }
+  // public data
+  final String uid;
+  final String username;
+  final String flatUsername;
+  final String? bio;
+
+  // private data
+  final String? rank;
+  final String? email;
+  final DateTime? createdAt;
+  final DateTime? termsAcceptedAt;
+
+  User toEntity() {
+    final bio = (this.bio?.trim().isEmpty ?? true) ? null : this.bio?.trim();
+
+    return User(
+      uid: uid,
+      username: username,
+      flatUsername: flatUsername,
+      bio: bio,
+      email: email,
+      createdAt: createdAt,
+      rank: rank,
+      termsAcceptedAt: termsAcceptedAt,
     );
   }
 }

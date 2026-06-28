@@ -3,16 +3,17 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 class DiagonalClipper extends CustomClipper<Path> {
-  final double angle; // Angle in degrees
-  final double
-  heightFactor; // Determines where the cut starts on the left edge (0 to 1)
-  final bool invert; // Whether to invert the clipping
+  // Whether to invert the clipping
 
   DiagonalClipper({
     required this.angle,
     this.heightFactor = 1.0, // Default is 1.0 (cut starts at the bottom)
     this.invert = false, // Default is false (cut at the bottom right)
   });
+  final double angle; // Angle in degrees
+  final double
+  heightFactor; // Determines where the cut starts on the left edge (0 to 1)
+  final bool invert;
 
   @override
   Path getClip(Size size) {

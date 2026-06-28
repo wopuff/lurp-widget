@@ -2,26 +2,6 @@ import 'package:lurp/src/core/entities/common.dart';
 import 'package:lurp/src/config/logger/logger.dart';
 
 class CommentModel {
-  final String id;
-
-  final String auhtorId;
-  final String authorUsername;
-  final String authorFlatUsername;
-  final String authorRank;
-
-  final String? replyToAuthorUsername;
-
-  final DateTime createdAt;
-  final String state;
-
-  final bool createdByCurrentUser;
-  final String? currentUserReaction;
-
-  final String text;
-  final int likeCount;
-  final int dislikeCount;
-  final int replyCount;
-
   CommentModel({
     required this.id,
     required this.auhtorId,
@@ -81,6 +61,25 @@ class CommentModel {
       replyCount: 0,
     );
   }
+  final String id;
+
+  final String auhtorId;
+  final String authorUsername;
+  final String authorFlatUsername;
+  final String authorRank;
+
+  final String? replyToAuthorUsername;
+
+  final DateTime createdAt;
+  final String state;
+
+  final bool createdByCurrentUser;
+  final String? currentUserReaction;
+
+  final String text;
+  final int likeCount;
+  final int dislikeCount;
+  final int replyCount;
 
   Comment toEntity() {
     final creator = User.fromEmpty(

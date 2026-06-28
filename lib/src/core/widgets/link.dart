@@ -2,11 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:lurp/src/core/utils/url_launcher.dart';
 
 class AppLink extends StatelessWidget {
-  final String text;
-  final String link;
-  final TextStyle? style;
-  final Color? color;
-
   const AppLink({
     super.key,
     required this.text,
@@ -14,6 +9,10 @@ class AppLink extends StatelessWidget {
     this.style,
     this.color,
   });
+  final String text;
+  final String link;
+  final TextStyle? style;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {

@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:lurp/src/config/theme/poll_colors.dart';
 
 class SliderMarkers extends StatelessWidget {
+  const SliderMarkers({super.key, required this.votes, required this.average});
   final List<double> votes;
   final double average;
-
-  const SliderMarkers({super.key, required this.votes, required this.average});
 
   double xFor(double v, double trackWidth, {double thumbRadius = 15.0}) {
     final usableWidth = trackWidth - 2 * thumbRadius;

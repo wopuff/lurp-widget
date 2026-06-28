@@ -2,11 +2,6 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class BackgroundBlur extends StatelessWidget {
-  final Widget child;
-  final double borderRadius;
-  final BorderRadius? customBorderRadius;
-  final double blur;
-
   const BackgroundBlur({
     super.key,
     required this.child,
@@ -14,6 +9,10 @@ class BackgroundBlur extends StatelessWidget {
     this.borderRadius = 12.5,
     this.blur = 8,
   });
+  final Widget child;
+  final double borderRadius;
+  final BorderRadius? customBorderRadius;
+  final double blur;
 
   @override
   Widget build(BuildContext context) {

@@ -2,21 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:lurp/src/core/utils/color_utils.dart';
 
 class PostInfoBarButton extends StatelessWidget {
-  final Widget? child;
-  final String? iconPath;
-  final VoidCallback? action;
-  final bool isActive;
-
-  final bool roundedLeft;
-  final bool roundedRight;
-
-  final bool spacingRight;
-  final bool connectedSpacing;
-
-  final double? minWidth;
-  final EdgeInsets? padding;
-  final double iconSize;
-
   const PostInfoBarButton({
     super.key,
     this.child,
@@ -31,6 +16,20 @@ class PostInfoBarButton extends StatelessWidget {
     this.iconPath,
     this.iconSize = 14,
   });
+  final Widget? child;
+  final String? iconPath;
+  final VoidCallback? action;
+  final bool isActive;
+
+  final bool roundedLeft;
+  final bool roundedRight;
+
+  final bool spacingRight;
+  final bool connectedSpacing;
+
+  final double? minWidth;
+  final EdgeInsets? padding;
+  final double iconSize;
 
   static const double _height = 30;
   static const double _radius = 10;

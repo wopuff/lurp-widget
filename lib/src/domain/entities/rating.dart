@@ -2,6 +2,15 @@ import 'package:lurp/src/domain/entities/selection.dart';
 
 /// Represents a star-rating poll where users can cast numeric votes.
 class RatingPoll {
+  /// Creates a new [RatingPoll] instance.
+  RatingPoll({
+    required this.title,
+    required this.siuVote,
+    required this.averageValue,
+    required this.voteCount,
+    required this.starCount,
+  });
+
   /// The title or question of the rating poll.
   final String title;
 
@@ -16,15 +25,6 @@ class RatingPoll {
 
   /// The vote value cast by the currently signed-in user (SIU), if any.
   int? siuVote;
-
-  /// Creates a new [RatingPoll] instance.
-  RatingPoll({
-    required this.title,
-    required this.siuVote,
-    required this.averageValue,
-    required this.voteCount,
-    required this.starCount,
-  });
 
   /// The helper that guarantees a non-zero count of stars, falling back to [defaultStarCount].
   int get safeStarCount => starCount <= 0 ? defaultStarCount : starCount;

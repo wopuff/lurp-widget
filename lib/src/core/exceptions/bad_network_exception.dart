@@ -1,7 +1,6 @@
 class BadNetworkException implements Exception {
-  final String message;
-
   BadNetworkException([this.message = 'Request timed out.']);
+  final String message;
 
   @override
   String toString() => 'BadNetworkException: $message';

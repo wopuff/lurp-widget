@@ -4,10 +4,9 @@ import 'package:lurp/src/comments/domain/entities/comment.dart';
 import 'package:lurp/src/domain/entities/post.dart';
 
 class CommentWidget extends StatelessWidget {
+  const CommentWidget({super.key, required this.post, required this.comment});
   final Post post;
   final Comment comment;
-
-  const CommentWidget({super.key, required this.post, required this.comment});
 
   @override
   Widget build(BuildContext context) {

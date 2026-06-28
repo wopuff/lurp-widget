@@ -2,12 +2,6 @@ import 'package:lurp/src/core/exceptions/rate_limit_exception.dart';
 import 'package:lurp/src/core/utils/format_utils.dart';
 
 class ReturnData {
-  final String name;
-  String title;
-  final String body;
-  final bool isError;
-  final dynamic data;
-
   ReturnData({
     this.name = 'return-data',
     String? title,
@@ -21,10 +15,6 @@ class ReturnData {
         FormatUtils.cleanException(body).substring(0, 11) == 'Please wait') {
       this.title = 'You\'re going too fast!';
     }
-  }
-
-  bool equals(ReturnData error) {
-    return error.title == title && error.body == body;
   }
 
   factory ReturnData.fromException(Object error) {
@@ -60,5 +50,14 @@ class ReturnData {
       body:
           'You don\'t have access to this action. Learn more by going to Rank in Settings.',
     );
+  }
+  final String name;
+  String title;
+  final String body;
+  final bool isError;
+  final dynamic data;
+
+  bool equals(ReturnData error) {
+    return error.title == title && error.body == body;
   }
 }

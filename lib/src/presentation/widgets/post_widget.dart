@@ -13,6 +13,14 @@ import 'package:lurp/src/core/entities/common.dart';
 
 /// A widget that displays the full content of a [Post], including its header, title, media, and interactive poll/thought element.
 class PostWidget extends StatelessWidget {
+  /// Creates a new [PostWidget] widget instance.
+  const PostWidget({
+    super.key,
+    required this.post,
+    this.onCreatorTap,
+    this.onShareTap,
+  });
+
   /// The [Post] data entity to display.
   final Post post;
 
@@ -21,14 +29,6 @@ class PostWidget extends StatelessWidget {
 
   /// Callback function triggered when the user taps the share button on the post.
   final void Function(Post post)? onShareTap;
-
-  /// Creates a new [PostWidget] widget instance.
-  const PostWidget({
-    super.key,
-    required this.post,
-    this.onCreatorTap,
-    this.onShareTap,
-  });
 
   void _sharePost(BuildContext context) {
     if (onShareTap != null) {

@@ -3,13 +3,6 @@ import 'package:lurp/src/config/theme/poll_colors.dart';
 import 'package:lurp/src/core/entities/return_data.dart';
 
 class CustomAlertMessage {
-  final Widget? child;
-  final ReturnData? message;
-  final int? timerLength;
-  final Color? borderColor;
-  final bool successColor;
-  final bool errorColor;
-
   CustomAlertMessage({
     this.child,
     this.message,
@@ -18,6 +11,12 @@ class CustomAlertMessage {
     this.successColor = false,
     this.errorColor = false,
   });
+  final Widget? child;
+  final ReturnData? message;
+  final int? timerLength;
+  final Color? borderColor;
+  final bool successColor;
+  final bool errorColor;
 
   static void showNotSignedIn(BuildContext context) {
     CustomAlertMessage(
@@ -113,11 +112,6 @@ class CustomAlertMessage {
 }
 
 class AlertMessageWidget extends StatefulWidget {
-  final Widget? child;
-  final ReturnData message;
-  final Function(AlertMessageWidgetState) onSlideInMessageStateCreated;
-  final Color? borderColor;
-
   const AlertMessageWidget({
     super.key,
     this.child,
@@ -125,6 +119,10 @@ class AlertMessageWidget extends StatefulWidget {
     required this.onSlideInMessageStateCreated,
     this.borderColor,
   });
+  final Widget? child;
+  final ReturnData message;
+  final Function(AlertMessageWidgetState) onSlideInMessageStateCreated;
+  final Color? borderColor;
 
   @override
   AlertMessageWidgetState createState() => AlertMessageWidgetState();

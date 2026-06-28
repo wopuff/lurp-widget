@@ -7,6 +7,14 @@ import 'package:lurp/src/core/entities/common.dart';
 
 /// A stateful widget that fetches a post by its ID and renders a [PostWidget].
 class LurpPostWidget extends StatefulWidget {
+  /// Creates a new [LurpPostWidget] widget instance.
+  const LurpPostWidget({
+    super.key,
+    required this.postId,
+    this.onCreatorTap,
+    this.onShareTap,
+  });
+
   /// The unique ID of the post to fetch and display.
   final String postId;
 
@@ -15,14 +23,6 @@ class LurpPostWidget extends StatefulWidget {
 
   /// Callback function triggered when the user taps the share button on the post.
   final void Function(Post post)? onShareTap;
-
-  /// Creates a new [LurpPostWidget] widget instance.
-  const LurpPostWidget({
-    super.key,
-    required this.postId,
-    this.onCreatorTap,
-    this.onShareTap,
-  });
 
   @override
   State<LurpPostWidget> createState() => _LurpPostWidgetState();

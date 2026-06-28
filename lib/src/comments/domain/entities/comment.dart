@@ -3,48 +3,6 @@ import 'package:lurp/src/core/entities/common.dart';
 
 /// Represents a user comment on a post within the widget system.
 class Comment {
-  /// The unique identifier of the comment.
-  final String id;
-
-  /// The user who created the comment.
-  final User creator;
-
-  /// The text content of the comment.
-  final String text;
-
-  /// The timestamp when the comment was created.
-  final DateTime createdAt;
-
-  /// Whether the comment was created by the currently signed-in user (SIU).
-  final bool createdBySiu;
-
-  /// The username of the user this comment is replying to, if any.
-  final String? replyToUsername;
-
-  /// The state of the comment (e.g. active, deleted, flagged).
-  String state;
-
-  /// The total number of likes received by this comment.
-  int likeCount;
-
-  /// The total number of dislikes received by this comment.
-  int dislikeCount;
-
-  /// The total number of replies to this comment.
-  int replyCount;
-
-  /// Whether the currently signed-in user has liked this comment.
-  bool siuHasLiked;
-
-  /// Whether the currently signed-in user has disliked this comment.
-  bool siuHasDisliked;
-
-  /// The minimum length required for a comment's text content.
-  static const int minTextLength = 2;
-
-  /// The maximum length allowed for a comment's text content.
-  static const int maxTextLength = 349;
-
   /// Creates a new [Comment] instance.
   Comment({
     required this.id,
@@ -90,6 +48,48 @@ class Comment {
       createdBySiu: createdBySiu ?? false,
     );
   }
+
+  /// The unique identifier of the comment.
+  final String id;
+
+  /// The user who created the comment.
+  final User creator;
+
+  /// The text content of the comment.
+  final String text;
+
+  /// The timestamp when the comment was created.
+  final DateTime createdAt;
+
+  /// Whether the comment was created by the currently signed-in user (SIU).
+  final bool createdBySiu;
+
+  /// The username of the user this comment is replying to, if any.
+  final String? replyToUsername;
+
+  /// The state of the comment (e.g. active, deleted, flagged).
+  String state;
+
+  /// The total number of likes received by this comment.
+  int likeCount;
+
+  /// The total number of dislikes received by this comment.
+  int dislikeCount;
+
+  /// The total number of replies to this comment.
+  int replyCount;
+
+  /// Whether the currently signed-in user has liked this comment.
+  bool siuHasLiked;
+
+  /// Whether the currently signed-in user has disliked this comment.
+  bool siuHasDisliked;
+
+  /// The minimum length required for a comment's text content.
+  static const int minTextLength = 2;
+
+  /// The maximum length allowed for a comment's text content.
+  static const int maxTextLength = 349;
 
   /// Creates a copy of this comment with the given fields replaced by new values.
   Comment copyWith({

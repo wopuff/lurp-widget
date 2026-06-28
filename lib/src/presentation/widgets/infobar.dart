@@ -7,12 +7,6 @@ import 'package:lurp/src/presentation/widgets/infobar_button.dart';
 import 'package:lurp/src/presentation/widgets/rating_buttons.dart';
 
 class PostInfoBar extends StatelessWidget {
-  final Post post;
-  final VoidCallback? showInfoSheet;
-  final VoidCallback? showDateSheet;
-  final VoidCallback? sharePost;
-  final void Function(User creator)? onCreatorTap;
-
   const PostInfoBar({
     super.key,
     required this.post,
@@ -21,6 +15,11 @@ class PostInfoBar extends StatelessWidget {
     this.sharePost,
     this.onCreatorTap,
   });
+  final Post post;
+  final VoidCallback? showInfoSheet;
+  final VoidCallback? showDateSheet;
+  final VoidCallback? sharePost;
+  final void Function(User creator)? onCreatorTap;
 
   static const double height = 30;
   static const double spacing = 4;
@@ -104,11 +103,6 @@ class PostInfoBar extends StatelessWidget {
 }
 
 class PostInfoBarRightPart extends StatelessWidget {
-  final Post post;
-  final VoidCallback? showInfoSheet;
-  final VoidCallback? sharePost;
-  final bool isInteractable;
-
   const PostInfoBarRightPart({
     super.key,
     required this.post,
@@ -116,6 +110,10 @@ class PostInfoBarRightPart extends StatelessWidget {
     this.sharePost,
     this.isInteractable = true,
   });
+  final Post post;
+  final VoidCallback? showInfoSheet;
+  final VoidCallback? sharePost;
+  final bool isInteractable;
 
   static const height = PostInfoBar.height;
   static const spacing = PostInfoBar.spacing;

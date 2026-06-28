@@ -8,39 +8,6 @@ import 'package:lurp/src/domain/entities/thought.dart';
 import 'package:lurp/src/config/logger/logger.dart';
 
 class PostModel {
-  // Info
-  final String id;
-  final String type;
-  final String state;
-  final DateTime createdAt;
-
-  final String authorId;
-  final String authorUsername;
-  final String authorFlatUsername;
-  final String authorRank;
-
-  final int commentCount;
-  final int likeCount;
-  final int dislikeCount;
-  final int voteCount;
-
-  // Type-specific
-  final String? title;
-  final String? text;
-  final List<Map<String, dynamic>>? options;
-  final List<Map<String, dynamic>>? media;
-  final double? averageValue;
-  final List<double>? valueVotes;
-  final double? valueStart;
-  final double? valueEnd;
-  final int? valueSegments;
-  final int? starCount;
-
-  // User-specific
-  final String? userVoteOption;
-  final double? userVoteValue;
-  final String? userReaction;
-
   PostModel({
     required this.id,
     required this.type,
@@ -164,6 +131,38 @@ class PostModel {
       voteCount: 0,
     );
   }
+  // Info
+  final String id;
+  final String type;
+  final String state;
+  final DateTime createdAt;
+
+  final String authorId;
+  final String authorUsername;
+  final String authorFlatUsername;
+  final String authorRank;
+
+  final int commentCount;
+  final int likeCount;
+  final int dislikeCount;
+  final int voteCount;
+
+  // Type-specific
+  final String? title;
+  final String? text;
+  final List<Map<String, dynamic>>? options;
+  final List<Map<String, dynamic>>? media;
+  final double? averageValue;
+  final List<double>? valueVotes;
+  final double? valueStart;
+  final double? valueEnd;
+  final int? valueSegments;
+  final int? starCount;
+
+  // User-specific
+  final String? userVoteOption;
+  final double? userVoteValue;
+  final String? userReaction;
 
   static String? ratingFromData(String? reaction) {
     if (reaction == 'like') return 'positive';

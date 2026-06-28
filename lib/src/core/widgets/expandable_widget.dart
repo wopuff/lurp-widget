@@ -2,12 +2,6 @@ import 'package:flutter/material.dart';
 
 // THIS WIDGET IS SERIOUSLY NOT WORKING PROPERLY. USE 'ExpandableText' INSTEAD!
 class ExpandableWidget extends StatefulWidget {
-  final Widget child;
-  final int initialLines; // number of lines to show initially
-  final double
-  lineHeight; // approximate line height to calculate initial height
-  final double expandIncrement;
-
   const ExpandableWidget({
     super.key,
     required this.child,
@@ -15,6 +9,11 @@ class ExpandableWidget extends StatefulWidget {
     this.lineHeight = 20,
     this.expandIncrement = 100,
   });
+  final Widget child;
+  final int initialLines; // number of lines to show initially
+  final double
+  lineHeight; // approximate line height to calculate initial height
+  final double expandIncrement;
 
   @override
   State<ExpandableWidget> createState() => _ExpandableWidgetState();

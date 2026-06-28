@@ -8,9 +8,8 @@ import 'package:lurp/src/comments/presentation/widgets/comment_widget.dart';
 import 'package:lurp/src/domain/entities/post.dart';
 
 class CommentsSectionContent extends StatefulWidget {
-  final Post post;
-
   const CommentsSectionContent({super.key, required this.post});
+  final Post post;
 
   @override
   State<CommentsSectionContent> createState() => _CommentsSectionContentState();

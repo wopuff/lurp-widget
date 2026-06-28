@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
 class SubmitButton extends StatelessWidget {
+  const SubmitButton({super.key, this.action, this.size});
   final VoidCallback? action;
   final Size? size;
-
-  const SubmitButton({super.key, this.action, this.size});
 
   @override
   Widget build(BuildContext context) {

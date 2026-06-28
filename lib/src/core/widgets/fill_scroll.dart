@@ -1,13 +1,6 @@
 import 'package:flutter/widgets.dart';
 
 class FillSpaceScroll extends StatelessWidget {
-  final List<Widget> children;
-  final MainAxisAlignment mainAxisAlignment;
-  final CrossAxisAlignment crossAxisAlignment;
-  final EdgeInsetsGeometry? padding;
-  final ScrollPhysics physics;
-  final double? maxWidth;
-
   const FillSpaceScroll({
     super.key,
     required this.children,
@@ -17,6 +10,12 @@ class FillSpaceScroll extends StatelessWidget {
     this.physics = const BouncingScrollPhysics(),
     this.maxWidth,
   });
+  final List<Widget> children;
+  final MainAxisAlignment mainAxisAlignment;
+  final CrossAxisAlignment crossAxisAlignment;
+  final EdgeInsetsGeometry? padding;
+  final ScrollPhysics physics;
+  final double? maxWidth;
 
   @override
   Widget build(BuildContext context) {

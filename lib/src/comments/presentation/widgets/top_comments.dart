@@ -8,9 +8,8 @@ import 'package:lurp/src/domain/entities/post.dart';
 import 'package:lurp/src/comments/domain/entities/comment.dart';
 
 class PostTopComments extends StatefulWidget {
-  final Post post;
-
   const PostTopComments({super.key, required this.post});
+  final Post post;
 
   static const int commentMaxLength = 150;
 

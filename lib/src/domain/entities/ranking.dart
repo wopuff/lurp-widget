@@ -1,10 +1,10 @@
 /// Represents a ranking-based poll where users can rank options.
 class RankingPoll {
-  /// The question or title text of the ranking poll.
-  final String text;
-
   /// Creates a new [RankingPoll] instance with the specified [text].
   RankingPoll({required this.text});
+
+  /// The question or title text of the ranking poll.
+  final String text;
 
   /// The minimum length required for the poll's text.
   static const int minTextLength = 11;

@@ -3,9 +3,8 @@ import 'package:lurp/src/core/widgets/smart_text.dart';
 import 'package:lurp/src/domain/entities/thought.dart';
 
 class ThoughtWidget extends StatelessWidget {
-  final ThoughtPost thought;
-
   const ThoughtWidget({super.key, required this.thought});
+  final ThoughtPost thought;
 
   @override
   Widget build(BuildContext context) {

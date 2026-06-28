@@ -6,9 +6,8 @@ import 'package:lurp/src/presentation/types/slider/slider_markers.dart';
 import 'package:lurp/src/presentation/widgets/animated_stats.dart';
 
 class SliderWidget extends StatelessWidget {
-  final Post post;
-
   const SliderWidget({super.key, required this.post});
+  final Post post;
 
   SliderPoll get slider => post.slider!;
 

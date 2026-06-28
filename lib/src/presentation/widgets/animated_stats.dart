@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 
 class AnimatedStats extends StatelessWidget {
-  final bool hasVoted;
-  final String? text;
-  final Widget? child;
-
   const AnimatedStats({
     super.key,
     required this.hasVoted,
     this.text,
     this.child,
   });
+  final bool hasVoted;
+  final String? text;
+  final Widget? child;
 
   @override
   Widget build(BuildContext context) {

@@ -5,14 +5,13 @@ import 'package:lurp/src/domain/entities/post.dart';
 import 'package:lurp/src/presentation/widgets/infobar_button.dart';
 
 class PostRatingButtons extends StatelessWidget {
-  final Post post;
-  final bool isInteractable;
-
   const PostRatingButtons({
     super.key,
     required this.post,
     this.isInteractable = false,
   });
+  final Post post;
+  final bool isInteractable;
 
   @override
   Widget build(BuildContext context) {

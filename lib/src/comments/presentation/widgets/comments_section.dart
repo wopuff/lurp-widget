@@ -5,9 +5,8 @@ import 'package:lurp/src/comments/presentation/widgets/comments_section_content.
 import 'package:lurp/src/domain/entities/post.dart';
 
 class CommentsSection extends StatelessWidget {
-  final Post post;
-
   const CommentsSection({super.key, required this.post});
+  final Post post;
 
   void show(BuildContext context) {
     CustomBottomSheet bottomSheet = CustomBottomSheet(

@@ -1,25 +1,6 @@
 import 'package:lurp/src/core/entities/common.dart';
 
 class Profile {
-  final User user;
-  final bool siu;
-
-  final int thoughtsCreated;
-  final int pollsCreated;
-  final int pollsVoted;
-  final int votes;
-  final int receivedUpvotes;
-  final int receivedDownvotes;
-  final int givenUpvotes;
-  final int givenDownvotes;
-  final int selfUpvotes;
-  final int givenCommentLikes;
-  final int receivedCommentLikes;
-  final int writtenComments;
-  final int receivedComments;
-  final int createdPollOptions;
-  final double agreeableScore;
-
   Profile({
     required this.user,
     this.siu = false,
@@ -101,6 +82,24 @@ class Profile {
       agreeableScore: 0,
     );
   }
+  final User user;
+  final bool siu;
+
+  final int thoughtsCreated;
+  final int pollsCreated;
+  final int pollsVoted;
+  final int votes;
+  final int receivedUpvotes;
+  final int receivedDownvotes;
+  final int givenUpvotes;
+  final int givenDownvotes;
+  final int selfUpvotes;
+  final int givenCommentLikes;
+  final int receivedCommentLikes;
+  final int writtenComments;
+  final int receivedComments;
+  final int createdPollOptions;
+  final double agreeableScore;
 
   Profile copyWith({
     User? user,

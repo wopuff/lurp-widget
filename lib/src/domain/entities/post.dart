@@ -10,6 +10,61 @@ import 'package:lurp/src/core/entities/common.dart';
 
 /// Represents a post within the Lurp system, which can be of various types (e.g. thought, selection, slider, rating, ranking).
 class Post {
+  /// Creates a new [Post] instance.
+  Post({
+    required this.id,
+    required this.type,
+    required this.state,
+    required this.createdAt,
+    required this.commentCount,
+    required this.upvoteCount,
+    required this.downvoteCount,
+    required this.creator,
+    required this.topComments,
+    required this.media,
+    required this.siuRating,
+    this.selection,
+    this.thought,
+    this.slider,
+    this.rating,
+    this.ranking,
+  });
+
+  /// Factory constructor to create an empty [Post] template with optional overrides.
+  factory Post.fromEmpty({
+    String? id,
+    String? type,
+    String? state,
+    DateTime? createdAt,
+    int? commentCount,
+    int? upvoteCount,
+    int? downvoteCount,
+    User? creator,
+    List<Comment>? topComments,
+    List<MediaEntity>? media,
+    String? viewCommentsText,
+    SelectionPoll? poll,
+    ThoughtPost? thought,
+    SliderPoll? slider,
+  }) {
+    return Post(
+      id: id ?? '',
+      type: type ?? '',
+      state: state ?? '',
+      createdAt: createdAt ?? DateTime.now(),
+      commentCount: commentCount ?? 0,
+      upvoteCount: upvoteCount ?? 0,
+      downvoteCount: downvoteCount ?? 0,
+      creator: creator ?? User.unknown(),
+      topComments: topComments ?? [],
+      media: media ?? [],
+      siuRating: '',
+      selection: poll,
+      thought: thought,
+      slider: slider,
+    );
+  }
+
   /// The unique identifier of the post.
   final String id;
 
@@ -60,26 +115,6 @@ class Post {
 
   /// The ranking poll content, if this is a ranking poll.
   final RankingPoll? ranking;
-
-  /// Creates a new [Post] instance.
-  Post({
-    required this.id,
-    required this.type,
-    required this.state,
-    required this.createdAt,
-    required this.commentCount,
-    required this.upvoteCount,
-    required this.downvoteCount,
-    required this.creator,
-    required this.topComments,
-    required this.media,
-    required this.siuRating,
-    this.selection,
-    this.thought,
-    this.slider,
-    this.rating,
-    this.ranking,
-  });
 
   /// The relative URL route path for the post.
   String get path => '/p/$id';
@@ -137,41 +172,6 @@ class Post {
     slider?.removeVote();
     rating?.removeVote();
     ranking?.removeVote();
-  }
-
-  /// Factory constructor to create an empty [Post] template with optional overrides.
-  factory Post.fromEmpty({
-    String? id,
-    String? type,
-    String? state,
-    DateTime? createdAt,
-    int? commentCount,
-    int? upvoteCount,
-    int? downvoteCount,
-    User? creator,
-    List<Comment>? topComments,
-    List<MediaEntity>? media,
-    String? viewCommentsText,
-    SelectionPoll? poll,
-    ThoughtPost? thought,
-    SliderPoll? slider,
-  }) {
-    return Post(
-      id: id ?? '',
-      type: type ?? '',
-      state: state ?? '',
-      createdAt: createdAt ?? DateTime.now(),
-      commentCount: commentCount ?? 0,
-      upvoteCount: upvoteCount ?? 0,
-      downvoteCount: downvoteCount ?? 0,
-      creator: creator ?? User.unknown(),
-      topComments: topComments ?? [],
-      media: media ?? [],
-      siuRating: '',
-      selection: poll,
-      thought: thought,
-      slider: slider,
-    );
   }
 
   /// String constant matching the type name for a thought post.

@@ -2,16 +2,15 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 class CustomRefreshIndicator extends StatefulWidget {
-  final Widget child;
-  final Future<void> Function() onRefresh;
-  final double size;
-
   const CustomRefreshIndicator({
     super.key,
     required this.child,
     required this.onRefresh,
     this.size = 32,
   });
+  final Widget child;
+  final Future<void> Function() onRefresh;
+  final double size;
 
   @override
   State<CustomRefreshIndicator> createState() => _CustomRefreshIndicatorState();

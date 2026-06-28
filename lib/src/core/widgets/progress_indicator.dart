@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CustomProgressIndicator extends StatelessWidget {
+  const CustomProgressIndicator({super.key, this.color, this.size = 40});
   final Color? color;
   final double size;
-
-  const CustomProgressIndicator({super.key, this.color, this.size = 40});
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +21,9 @@ class CustomProgressIndicator extends StatelessWidget {
 }
 
 class _ThreeBounceDots extends StatefulWidget {
+  const _ThreeBounceDots({required this.color, required this.dotSize});
   final Color color;
   final double dotSize;
-
-  const _ThreeBounceDots({required this.color, required this.dotSize});
 
   @override
   State<_ThreeBounceDots> createState() => _ThreeBounceDotsState();

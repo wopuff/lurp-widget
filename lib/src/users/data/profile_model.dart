@@ -3,27 +3,6 @@ import 'package:lurp/src/core/entities/common.dart';
 import 'package:lurp/src/users/domain/entities/profile.dart';
 
 class ProfileModel {
-  final String uid;
-  final String username;
-  final String flatUsername;
-  final bool isCurrentUser;
-  final String bio;
-
-  final int createdPolls;
-  final int createdThoughts;
-  final int votedPolls;
-  final int receivedUpvotes;
-  final int receivedDownvotes;
-  final int givenUpvotes;
-  final int givenDownvotes;
-  final int selfUpvotes;
-  final int givenCommentLikes;
-  final int receivedCommentLikes;
-  final int writtenComments;
-  final int receivedComments;
-  final int createdPollOptions;
-  final double agreeableScore;
-
   ProfileModel({
     required this.uid,
     required this.username,
@@ -45,32 +24,6 @@ class ProfileModel {
     required this.createdPollOptions,
     required this.agreeableScore,
   });
-
-  Profile toEntity() {
-    return Profile(
-      user: User(
-        uid: uid,
-        username: username,
-        flatUsername: flatUsername,
-        bio: bio,
-      ),
-      siu: isCurrentUser,
-      thoughtsCreated: createdThoughts,
-      pollsCreated: createdPolls,
-      pollsVoted: votedPolls,
-      receivedUpvotes: receivedUpvotes,
-      receivedDownvotes: receivedDownvotes,
-      givenUpvotes: givenUpvotes,
-      givenDownvotes: givenDownvotes,
-      selfUpvotes: selfUpvotes,
-      givenCommentLikes: givenCommentLikes,
-      receivedCommentLikes: receivedCommentLikes,
-      writtenComments: writtenComments,
-      receivedComments: receivedComments,
-      createdPollOptions: createdPollOptions,
-      agreeableScore: agreeableScore,
-    );
-  }
 
   factory ProfileModel.fromData(Map<String, dynamic> data) {
     try {
@@ -124,6 +77,52 @@ class ProfileModel {
       receivedComments: 0,
       createdPollOptions: 0,
       agreeableScore: 0.0,
+    );
+  }
+  final String uid;
+  final String username;
+  final String flatUsername;
+  final bool isCurrentUser;
+  final String bio;
+
+  final int createdPolls;
+  final int createdThoughts;
+  final int votedPolls;
+  final int receivedUpvotes;
+  final int receivedDownvotes;
+  final int givenUpvotes;
+  final int givenDownvotes;
+  final int selfUpvotes;
+  final int givenCommentLikes;
+  final int receivedCommentLikes;
+  final int writtenComments;
+  final int receivedComments;
+  final int createdPollOptions;
+  final double agreeableScore;
+
+  Profile toEntity() {
+    return Profile(
+      user: User(
+        uid: uid,
+        username: username,
+        flatUsername: flatUsername,
+        bio: bio,
+      ),
+      siu: isCurrentUser,
+      thoughtsCreated: createdThoughts,
+      pollsCreated: createdPolls,
+      pollsVoted: votedPolls,
+      receivedUpvotes: receivedUpvotes,
+      receivedDownvotes: receivedDownvotes,
+      givenUpvotes: givenUpvotes,
+      givenDownvotes: givenDownvotes,
+      selfUpvotes: selfUpvotes,
+      givenCommentLikes: givenCommentLikes,
+      receivedCommentLikes: receivedCommentLikes,
+      writtenComments: writtenComments,
+      receivedComments: receivedComments,
+      createdPollOptions: createdPollOptions,
+      agreeableScore: agreeableScore,
     );
   }
 }

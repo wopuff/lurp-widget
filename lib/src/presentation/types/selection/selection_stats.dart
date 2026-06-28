@@ -6,9 +6,8 @@ import 'package:lurp/src/domain/entities/post.dart';
 import 'package:lurp/src/config/theme/poll_colors.dart';
 
 class SelectionStats extends StatelessWidget {
-  final Post post;
-
   const SelectionStats({super.key, required this.post});
+  final Post post;
 
   SelectionPoll get poll => post.selection!;
   List<List<PollOption>> get groups => post.selection!.votedOptionGroups;
@@ -73,9 +72,8 @@ class SelectionStats extends StatelessWidget {
 }
 
 class PollStatsColorIndicator extends StatelessWidget {
-  final PollOption option;
-
   const PollStatsColorIndicator({super.key, required this.option});
+  final PollOption option;
 
   @override
   Widget build(BuildContext context) {

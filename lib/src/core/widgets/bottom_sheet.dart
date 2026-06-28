@@ -3,12 +3,6 @@ import 'package:lurp/src/core/entities/return_data.dart';
 import 'package:lurp/src/core/widgets/appbar.dart';
 
 class CustomBottomSheet {
-  final ReturnData? error;
-  final String title;
-  final Widget? content;
-  final EdgeInsets padding;
-  final double topMargin;
-
   CustomBottomSheet({
     this.error,
     this.title = '',
@@ -16,6 +10,11 @@ class CustomBottomSheet {
     this.padding = EdgeInsets.zero,
     this.topMargin = 40,
   });
+  final ReturnData? error;
+  final String title;
+  final Widget? content;
+  final EdgeInsets padding;
+  final double topMargin;
 
   void show(BuildContext context) {
     showModalBottomSheet(
@@ -56,16 +55,15 @@ class CustomBottomSheet {
 }
 
 class BottomMenuItem extends StatelessWidget {
-  final Widget icon;
-  final String text;
-  final VoidCallback action;
-
   const BottomMenuItem({
     super.key,
     required this.icon,
     required this.text,
     required this.action,
   });
+  final Widget icon;
+  final String text;
+  final VoidCallback action;
 
   @override
   Widget build(BuildContext context) {

@@ -3,9 +3,8 @@ import 'package:lurp/src/comments/domain/repositories/comment_repository.dart';
 import 'package:lurp/src/core/entities/common.dart';
 
 class GetTopComments {
-  final CommentRepository repository;
-
   GetTopComments({required this.repository});
+  final CommentRepository repository;
 
   Future<List<Comment>> call(Post post) async {
     if (post.id.isEmpty) return [];

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
 class PostTitle extends StatelessWidget {
+  const PostTitle({super.key, required this.title, this.padding});
   final String title;
   final EdgeInsets? padding;
-
-  const PostTitle({super.key, required this.title, this.padding});
 
   double get titleFontSize {
     // decide title font size based on title length

@@ -2,6 +2,20 @@ import 'package:lurp/src/domain/entities/selection.dart';
 
 /// Represents a slider-based poll where users can vote by choosing a value along a range.
 class SliderPoll {
+  /// Creates a new [SliderPoll] instance.
+  SliderPoll({
+    required this.title,
+    required this.siuVote,
+    required this.averageValue,
+    required this.voteCount,
+    required this.votes,
+    required this.valueStart,
+    required this.valueEnd,
+    required this.valueSegments,
+  }) {
+    _updateStats();
+  }
+
   /// The title or question of the slider poll.
   final String title;
 
@@ -25,20 +39,6 @@ class SliderPoll {
 
   /// The number of discrete segments the slider range is divided into.
   int? valueSegments;
-
-  /// Creates a new [SliderPoll] instance.
-  SliderPoll({
-    required this.title,
-    required this.siuVote,
-    required this.averageValue,
-    required this.voteCount,
-    required this.votes,
-    required this.valueStart,
-    required this.valueEnd,
-    required this.valueSegments,
-  }) {
-    _updateStats();
-  }
 
   /// The string representation of the currently signed-in user's vote.
   String get formattedVote => ((siuVote ?? 0) * 10).toStringAsFixed(1);

@@ -5,11 +5,6 @@ import 'package:lurp/src/comments/presentation/widgets/top_comments.dart';
 import 'package:lurp/src/domain/entities/post.dart';
 
 class SingleTopCommentWidget extends StatelessWidget {
-  final Post post;
-  final Comment? comment;
-  final bool showButton;
-  final String viewMoreText;
-
   const SingleTopCommentWidget({
     super.key,
     required this.post,
@@ -17,6 +12,10 @@ class SingleTopCommentWidget extends StatelessWidget {
     this.showButton = false,
     this.viewMoreText = '',
   });
+  final Post post;
+  final Comment? comment;
+  final bool showButton;
+  final String viewMoreText;
 
   String _commentText() {
     if (comment != null) {
