@@ -3,14 +3,6 @@ import 'package:lurp/src/core/widgets/divider.dart';
 import 'package:lurp/src/core/utils/layout_utils.dart';
 
 class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
-  final String title;
-  final bool showCloseButton;
-  final VoidCallback? onClose;
-  final String defaultPageOnClose;
-  final bool alwaysShowDivider;
-  final bool neverShowDivider;
-  final EdgeInsets? padding;
-
   const CustomAppbar({
     super.key,
     this.title = '',
@@ -21,6 +13,13 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
     this.neverShowDivider = false,
     this.padding,
   });
+  final String title;
+  final bool showCloseButton;
+  final VoidCallback? onClose;
+  final String defaultPageOnClose;
+  final bool alwaysShowDivider;
+  final bool neverShowDivider;
+  final EdgeInsets? padding;
 
   static Widget titleText(BuildContext context, String text) {
     return Expanded(
@@ -42,16 +41,16 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    double extraWidth = LayoutUtils.isMobile(context) ? 0 : 27.5;
-    double horizPadding = LayoutUtils.isMobile(context)
+    var extraWidth = LayoutUtils.isMobile(context) ? 0 : 27.5;
+    var horizPadding = LayoutUtils.isMobile(context)
         ? LayoutUtils.standardPadding
-        : 0;
+        : 0.0;
 
     return Container(
       height: 53,
       padding: padding,
       child: Column(
-        children: [
+        children: <Widget>[
           Container(
             constraints: BoxConstraints(
               maxWidth: LayoutUtils.contentMaxWidth(context) + extraWidth,
@@ -59,7 +58,7 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
             padding: EdgeInsets.fromLTRB(horizPadding, 5, horizPadding, 5),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+              children: <Widget>[
                 const SizedBox(width: 40),
 
                 titleText(context, title),

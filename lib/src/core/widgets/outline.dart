@@ -3,6 +3,22 @@ import 'package:lurp/src/config/theme/poll_colors.dart';
 import 'package:lurp/src/config/theme/theme_values.dart';
 
 class CustomOutline extends StatelessWidget {
+  const CustomOutline({
+    super.key,
+    required this.child,
+    this.putAboveChild = false,
+    this.width = 3,
+    this.borderWidth = 0,
+    this.color,
+    this.gradient,
+    this.padding,
+    this.margin,
+    this.isRainbow = false,
+    this.isChristmas = false,
+    this.radius = 0,
+    this.borderColor,
+    this.gradientRotation = 0,
+  });
   final Widget child;
 
   final bool putAboveChild;
@@ -22,23 +38,6 @@ class CustomOutline extends StatelessWidget {
   // border around outline
   final double borderWidth;
   final Color? borderColor;
-
-  const CustomOutline({
-    super.key,
-    required this.child,
-    this.putAboveChild = false,
-    this.width = 3,
-    this.borderWidth = 0,
-    this.color,
-    this.gradient,
-    this.padding,
-    this.margin,
-    this.isRainbow = false,
-    this.isChristmas = false,
-    this.radius = 0,
-    this.borderColor,
-    this.gradientRotation = 0,
-  });
 
   @override
   Widget build(BuildContext context) {
@@ -72,17 +71,17 @@ class CustomOutline extends StatelessWidget {
     // christmas
     if (isChristmas) {
       List<Object> generateSegments(int n, Color color1, Color color2) {
-        final List<Color> colors = [];
-        final List<double> stops = [];
-        final double unit = 1.0 / n;
+        final colors = <Color>[];
+        final stops = <double>[];
+        final unit = 1.0 / n;
 
-        for (int i = 0; i < n; i++) {
+        for (var i = 0; i < n; i++) {
           // Determine the color for the current segment
-          final currentColor = (i % 2 == 0) ? color1 : color2;
+          final Color currentColor = (i % 2 == 0) ? color1 : color2;
 
           // Define the start and end point for the segment
-          final startStop = i * unit;
-          final endStop = (i + 1) * unit;
+          final double startStop = i * unit;
+          final double endStop = (i + 1) * unit;
 
           // 1. Start the color at the start stop
           colors.add(currentColor);
@@ -92,16 +91,16 @@ class CustomOutline extends StatelessWidget {
           colors.add(currentColor);
           stops.add(endStop);
         }
-        return [colors, stops];
+        return <Object>[colors, stops];
       }
 
-      final result = generateSegments(
+      final List<Object> result = generateSegments(
         15,
         ThemeValues.christmasRed,
         Colors.white,
       );
-      final List<Color> segmentColors = result[0] as List<Color>;
-      final List<double> segmentStops = result[1] as List<double>;
+      final segmentColors = result[0] as List<Color>;
+      final segmentStops = result[1] as List<double>;
 
       return LinearGradient(
         begin: Alignment.centerLeft,
@@ -118,8 +117,9 @@ class CustomOutline extends StatelessWidget {
         begin: Alignment.topRight,
         end: Alignment.bottomLeft,
         transform: GradientRotation(gradientRotation),
-        colors: [
-          for (int i in [3, 2, 1, 0, 3, 2, 1, 0, 3, 2]) PollColors.lightList[i],
+        colors: <Color>[
+          for (int i in <int>[3, 2, 1, 0, 3, 2, 1, 0, 3, 2])
+            PollColors.lightList[i],
         ],
       );
     }

@@ -8,33 +8,60 @@ import 'package:lurp/src/domain/entities/slider.dart';
 import 'package:lurp/src/domain/entities/thought.dart';
 import 'package:lurp/src/core/entities/common.dart';
 
+/// Represents a post within the Lurp system, which can be of various types (e.g. thought, selection, slider, rating, ranking).
 class Post {
-  // Info
+  /// The unique identifier of the post.
   final String id;
 
+  /// The type of post (e.g. "thought", "selection", etc.).
   final String type;
+
+  /// The state of the post (e.g. active, deleted, flagged).
   final String state;
+
+  /// The timestamp when the post was created.
   final DateTime createdAt;
 
+  /// The user who created the post.
   final User creator;
+
+  /// The list of top comments associated with this post.
   final List<Comment>? topComments;
+
+  /// The media attachments (images, videos, etc.) in this post.
   final List<MediaEntity> media;
 
-  // Variable data
+  /// The total count of comments on this post.
   int commentCount;
+
+  /// The total count of upvotes on this post.
   int upvoteCount;
+
+  /// The total count of downvotes on this post.
   int downvoteCount;
 
+  /// The rating action of the currently signed-in user (SIU) on this post.
   String siuRating;
+
+  /// The customized button text for viewing comments.
   String? viewCommentsText;
 
-  // Content types
+  /// The selection poll content, if this is a selection/options post.
   final ThoughtPost? thought;
+
+  /// The selection poll content, if this is a selection poll.
   final SelectionPoll? selection;
+
+  /// The slider poll content, if this is a slider poll.
   final SliderPoll? slider;
+
+  /// The rating poll content, if this is a rating poll.
   final RatingPoll? rating;
+
+  /// The ranking poll content, if this is a ranking poll.
   final RankingPoll? ranking;
 
+  /// Creates a new [Post] instance.
   Post({
     required this.id,
     required this.type,
@@ -54,19 +81,31 @@ class Post {
     this.ranking,
   });
 
-  // Link getters
+  /// The relative URL route path for the post.
   String get path => '/p/$id';
+
+  /// The absolute URL for the post.
   String get fullUrl => '${Links.currentBaseUrl}/p/$id';
 
-  // Content getters
+  /// Returns true if this is a plain text/thought post.
   bool get isThought => type == thoughtType && thought != null;
+
+  /// Returns true if this post contains a poll (selection, slider, rating, or ranking).
   bool get isPoll => type != thoughtType;
 
+  /// Returns true if this is a selection/options poll.
   bool get isSelection => type == optionType && selection != null;
+
+  /// Returns true if this is a slider poll.
   bool get isSlider => type == sliderType && slider != null;
+
+  /// Returns true if this is a rating poll.
   bool get isRating => type == ratingType && rating != null;
+
+  /// Returns true if this is a ranking poll.
   bool get isRanking => type == rankingType && ranking != null;
 
+  /// Returns a list of all content type models in this post.
   List<Object?> get allContentTypes => [
     thought,
     selection,
@@ -74,21 +113,17 @@ class Post {
     rating,
     ranking,
   ];
+
+  /// Returns a list of all poll content type models in this post.
   List<Object?> get allPollContent => [selection, slider, rating, ranking];
+
+  /// Returns true if the post has any valid content.
   bool get hasContent => allContentTypes.any((content) => content != null);
 
+  /// The title of the post (retrieved from selection, slider, or rating sub-elements).
   String? get title => selection?.title ?? slider?.title ?? rating?.title;
 
-  // Poll getters
-  // ** IMPLEMENT POLL CLASS AND MAKE OTHER CLASSESS INHERIT THIS. THAT WILL SIMPLIFY THIS PROCESS **
-  // int get voteCount {
-  //   for (var content in allPollContent) {
-  //     if (content != null) {
-  //       if (content is SliderPoll) return content.voteCount;
-  //     }
-  //   }
-  // }
-
+  /// Casts a vote on the active poll type.
   void addVote(PollOption? option, double? value) {
     selection?.addVote(option);
     slider?.addVote(value ?? 0);
@@ -96,6 +131,7 @@ class Post {
     ranking?.addVote();
   }
 
+  /// Removes a vote from the active poll type.
   void removeVote() {
     selection?.removeVote();
     slider?.removeVote();
@@ -103,6 +139,7 @@ class Post {
     ranking?.removeVote();
   }
 
+  /// Factory constructor to create an empty [Post] template with optional overrides.
   factory Post.fromEmpty({
     String? id,
     String? type,
@@ -137,9 +174,18 @@ class Post {
     );
   }
 
+  /// String constant matching the type name for a thought post.
   static final String thoughtType = PostType.thought.name;
+
+  /// String constant matching the type name for an option/selection poll.
   static final String optionType = PostType.selection.name;
+
+  /// String constant matching the type name for a slider poll.
   static final String sliderType = PostType.slider.name;
+
+  /// String constant matching the type name for a rating poll.
   static final String ratingType = PostType.rating.name;
+
+  /// String constant matching the type name for a ranking poll.
   static final String rankingType = PostType.ranking.name;
 }

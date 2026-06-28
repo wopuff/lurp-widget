@@ -4,7 +4,7 @@ import 'package:lurp/src/core/utils/format_utils.dart';
 class DecideViewCommentsText {
   static String viewCommentsText(int commentCount, int topCommentCount) {
     if (commentCount == 0) {
-      List<String> phrases = [
+      var phrases = <String>[
         'Be the first to comment!',
         'Comment now!',
         'Share your thoughts!',
@@ -13,7 +13,7 @@ class DecideViewCommentsText {
         'Help others decide.',
       ];
 
-      int index = Random().nextInt(phrases.length);
+      var index = Random().nextInt(phrases.length);
       return phrases[index];
     }
 
@@ -21,7 +21,7 @@ class DecideViewCommentsText {
       return '+${FormatUtils.shortenNumber(commentCount - topCommentCount)} more';
     }
 
-    List<String> phrases = [
+    var phrases = <String>[
       'Thoughts?',
       'Your take?',
       'Weigh in.',
@@ -32,7 +32,7 @@ class DecideViewCommentsText {
       'Join in!',
     ];
 
-    int index = Random().nextInt(phrases.length);
+    var index = Random().nextInt(phrases.length);
     return phrases[index];
   }
 }

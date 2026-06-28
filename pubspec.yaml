@@ -7,12 +7,12 @@ issue_tracker: https://github.com/wopuff/lurp-widget/issues
 
 environment:
   sdk: ^3.11.5
-  flutter: ">=1.17.0"
+  flutter: ">=3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  dio: ^5.0.0
+  dio: ^5.4.0
   logger: ^2.7.0
   url_launcher: ^6.2.0
 
@@ -22,3 +22,16 @@ dev_dependencies:
   flutter_lints: ^6.0.0
 
 flutter:
+
+platforms:
+  android:
+  ios:
+  linux:
+  macos:
+  web:
+  windows:
+
+linter:
+  rules:
+    public_member_api_docs: true
+    

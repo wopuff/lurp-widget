@@ -3,9 +3,9 @@ import 'package:lurp/src/core/widgets/smart_text.dart';
 import 'package:lurp/src/domain/entities/thought.dart';
 
 class RankingWidget extends StatelessWidget {
-  final ThoughtPost thought;
-
   const RankingWidget({super.key, required this.thought});
+
+  final ThoughtPost thought;
 
   @override
   Widget build(BuildContext context) {

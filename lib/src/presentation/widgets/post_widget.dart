@@ -11,11 +11,18 @@ import 'package:lurp/src/presentation/widgets/post_title.dart';
 import 'package:lurp/src/comments/presentation/widgets/top_comments.dart';
 import 'package:lurp/src/core/entities/common.dart';
 
+/// A widget that displays the full content of a [Post], including its header, title, media, and interactive poll/thought element.
 class PostWidget extends StatelessWidget {
+  /// The [Post] data entity to display.
   final Post post;
+
+  /// Callback function triggered when the user taps on the post creator's avatar or username.
   final void Function(User creator)? onCreatorTap;
+
+  /// Callback function triggered when the user taps the share button on the post.
   final void Function(Post post)? onShareTap;
 
+  /// Creates a new [PostWidget] widget instance.
   const PostWidget({
     super.key,
     required this.post,

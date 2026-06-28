@@ -5,11 +5,18 @@ import 'package:lurp/src/presentation/widgets/post_widget.dart';
 import 'package:lurp/src/core/widgets/progress_indicator.dart';
 import 'package:lurp/src/core/entities/common.dart';
 
+/// A stateful widget that fetches a post by its ID and renders a [PostWidget].
 class LurpPostWidget extends StatefulWidget {
+  /// The unique ID of the post to fetch and display.
   final String postId;
+
+  /// Callback function triggered when the user taps on the post creator's avatar or username.
   final void Function(User creator)? onCreatorTap;
+
+  /// Callback function triggered when the user taps the share button on the post.
   final void Function(Post post)? onShareTap;
 
+  /// Creates a new [LurpPostWidget] widget instance.
   const LurpPostWidget({
     super.key,
     required this.postId,

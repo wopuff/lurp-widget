@@ -5,11 +5,6 @@ import 'package:lurp/src/core/utils/color_utils.dart';
 import 'package:lurp/src/core/utils/layout_utils.dart';
 
 class SmartText extends StatefulWidget {
-  final String text;
-  final TextStyle? style;
-  final Color? viewMoreColor;
-  final bool isSelectable;
-
   const SmartText({
     super.key,
     required this.text,
@@ -17,6 +12,10 @@ class SmartText extends StatefulWidget {
     this.viewMoreColor,
     this.isSelectable = true,
   });
+  final String text;
+  final TextStyle? style;
+  final Color? viewMoreColor;
+  final bool isSelectable;
 
   @override
   State<SmartText> createState() => _SmartTextState();
@@ -30,7 +29,7 @@ class _SmartTextState extends State<SmartText> {
   bool _isOverflowing = false;
   double? _textHeight;
   int _textRowIncrement = SmartText.textRowIncrement;
-  final List<TapGestureRecognizer> _recognizers = [];
+  final List<TapGestureRecognizer> _recognizers = <TapGestureRecognizer>[];
 
   @override
   void initState() {
@@ -40,14 +39,14 @@ class _SmartTextState extends State<SmartText> {
 
   @override
   void dispose() {
-    for (final r in _recognizers) {
+    for (final TapGestureRecognizer r in _recognizers) {
       r.dispose();
     }
     super.dispose();
   }
 
   Future<void> _handleLinkTap(String urlString) async {
-    final Uri url = Uri.parse(
+    final url = Uri.parse(
       urlString.startsWith('http') ? urlString : 'https://$urlString',
     );
     try {
@@ -71,12 +70,13 @@ class _SmartTextState extends State<SmartText> {
 
   void _checkOverflow() {
     if (!mounted) return;
-    final double width = LayoutUtils.contentMaxWidth(context) - 51;
-    final baseStyle = widget.style ?? Theme.of(context).textTheme.bodyMedium;
+    final width = LayoutUtils.contentMaxWidth(context) - 51;
+    final TextStyle? baseStyle =
+        widget.style ?? Theme.of(context).textTheme.bodyMedium;
 
-    final spans = _buildSpans(baseStyle);
+    final List<InlineSpan> spans = _buildSpans(baseStyle);
 
-    final textPainter = TextPainter(
+    final TextPainter textPainter = TextPainter(
       text: TextSpan(style: baseStyle, children: spans),
       maxLines: _textRowCount,
       textDirection: TextDirection.ltr,
@@ -95,21 +95,21 @@ class _SmartTextState extends State<SmartText> {
   }
 
   List<InlineSpan> _buildSpans(TextStyle? baseStyle) {
-    for (final r in _recognizers) {
+    for (final TapGestureRecognizer r in _recognizers) {
       r.dispose();
     }
     _recognizers.clear();
 
-    final RegExp linkRegExp = RegExp(
+    final linkRegExp = RegExp(
       r'(https?:\/\/[^\s]+)|(www\.[^\s]+)',
       caseSensitive: false,
     );
 
-    final List<InlineSpan> spans = [];
-    int start = 0;
+    final spans = <InlineSpan>[];
+    var start = 0;
 
-    final colorScheme = Theme.of(context).colorScheme;
-    final linkStyle = TextStyle(
+    final ColorScheme colorScheme = Theme.of(context).colorScheme;
+    final TextStyle linkStyle = TextStyle(
       color: colorScheme.primary,
       fontWeight: FontWeight.w700,
       decoration: TextDecoration.underline,
@@ -120,8 +120,8 @@ class _SmartTextState extends State<SmartText> {
         spans.add(TextSpan(text: widget.text.substring(start, match.start)));
       }
 
-      final String url = match.group(0)!;
-      final recognizer = TapGestureRecognizer()
+      final url = match.group(0)!;
+      final TapGestureRecognizer recognizer = TapGestureRecognizer()
         ..onTap = () => _handleLinkTap(url);
       _recognizers.add(recognizer);
 
@@ -138,12 +138,12 @@ class _SmartTextState extends State<SmartText> {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
+    final TextTheme textTheme = Theme.of(context).textTheme;
 
-    final baseStyle = widget.style ?? textTheme.bodyMedium;
-    final spans = _buildSpans(baseStyle);
+    final TextStyle? baseStyle = widget.style ?? textTheme.bodyMedium;
+    final List<InlineSpan> spans = _buildSpans(baseStyle);
 
-    final baseTextContent = Text.rich(
+    final Text baseTextContent = Text.rich(
       TextSpan(children: spans),
       style: baseStyle,
       maxLines: _textRowCount,
@@ -153,7 +153,7 @@ class _SmartTextState extends State<SmartText> {
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
+      children: <Widget>[
         AnimatedContainer(
           duration: const Duration(milliseconds: 300),
           curve: Curves.fastOutSlowIn,
