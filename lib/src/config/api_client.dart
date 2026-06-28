@@ -1,7 +1,8 @@
-import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:lurp/src/config/logger.dart';
+import 'connection_error/connection_error_stub.dart'
+    if (dart.library.io) 'connection_error/connection_error_io.dart';
 
 class ApiClient {
   ApiClient._({required this.apiKey, bool isProd = true})
@@ -88,7 +89,7 @@ class ApiClient {
     final t = e.type;
     return t == DioExceptionType.connectionError ||
         t == DioExceptionType.connectionTimeout ||
-        (t == DioExceptionType.unknown && e.error is SocketException);
+        (t == DioExceptionType.unknown && isSocketException(e.error));
   }
 
   static int? getRateLimitSecondsRemaining(DioException e) {

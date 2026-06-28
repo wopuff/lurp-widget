@@ -70,6 +70,7 @@ class _CommentsSectionContentState extends State<CommentsSectionContent> {
     final itemCount = _comments.length + (_hasMore ? 1 : 0);
 
     return ListView.builder(
+      // ignore: deprecated_member_use
       cacheExtent: 50,
       shrinkWrap: true,
       physics: const AlwaysScrollableScrollPhysics(),

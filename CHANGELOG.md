@@ -1,3 +1,8 @@
+## 0.0.4
+* **Fixed:** Corrected `SocketException` handling for non-Web platforms by introducing platform-specific implementations for connection error detection.
+* **Refactored:** Updated `ApiClient` to use platform-specific connection error checking instead of direct `dart:io` imports.
+* **Maintenance:** Addressed `deprecated_member_use` lint for `cacheExtent` in `CommentsSectionContent`.
+
 ## 0.0.3
 * **Fixed:** Configured `pubspec.yaml` settings to optimize pub points and fixed Dart `const` warning/lint errors.
 * **Refactored:** Performed internal code refactoring across the codebase without changing external APIs or functionality.
