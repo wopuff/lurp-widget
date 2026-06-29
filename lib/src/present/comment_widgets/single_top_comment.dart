@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lurp/src/core/utils/color_utils.dart';
-import 'package:lurp/src/domain/entities/comment.dart';
+import 'package:lurp/src/domain/entities/lurp_comment.dart';
 import 'package:lurp/src/present/comment_widgets/top_comments.dart';
-import 'package:lurp/src/domain/entities/post.dart';
+import 'package:lurp/src/domain/entities/lurp_post.dart';
 
 class SingleTopCommentWidget extends StatelessWidget {
   const SingleTopCommentWidget({
@@ -12,8 +12,8 @@ class SingleTopCommentWidget extends StatelessWidget {
     this.showButton = false,
     this.viewMoreText = '',
   });
-  final Post post;
-  final Comment? comment;
+  final LurpPost post;
+  final LurpComment? comment;
   final bool showButton;
   final String viewMoreText;
 

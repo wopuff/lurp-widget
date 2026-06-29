@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:lurp/src/core/utils/date_utils.dart';
-import 'package:lurp/src/domain/entities/comment.dart';
-import 'package:lurp/src/domain/entities/post.dart';
+import 'package:lurp/src/domain/entities/lurp_comment.dart';
+import 'package:lurp/src/domain/entities/lurp_post.dart';
 
 class CommentWidget extends StatelessWidget {
   const CommentWidget({super.key, required this.post, required this.comment});
-  final Post post;
-  final Comment comment;
+  final LurpPost post;
+  final LurpComment comment;
 
   @override
   Widget build(BuildContext context) {

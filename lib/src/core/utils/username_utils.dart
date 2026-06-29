@@ -1,9 +1,9 @@
 import 'package:lurp/src/core/entities/return_data.dart';
-import 'package:lurp/src/core/entities/user.dart';
+import 'package:lurp/src/core/entities/lurp_user.dart';
 
 class UsernameFormatUtils {
-  static const _minLength = User.minUsernameLength;
-  static const _maxLength = User.maxUsernameLength;
+  static const _minLength = LurpUser.minUsernameLength;
+  static const _maxLength = LurpUser.maxUsernameLength;
 
   static ReturnData validate(String username) {
     // 1. Length 4–23

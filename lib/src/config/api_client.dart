@@ -15,7 +15,7 @@ class ApiClient {
         headers: {
           'Content-Type': 'application/json',
           'X-Platform': _platformHeader,
-          'X-Lurp-API-Key': apiKey,
+          // 'X-Lurp-API-Key': apiKey,
         },
       ),
     );
@@ -25,7 +25,7 @@ class ApiClient {
   static ApiClient get instance {
     if (_instance == null) {
       throw Exception(
-        'ApiClient must be initialized before use. Call Lurp.initialize(...) or ApiClient.initialize(...)',
+        'ApiClient must be initialized before use. Call Lurp.initialize(...)',
       );
     }
     return _instance!;

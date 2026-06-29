@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:lurp/src/core/widgets/progress_indicator.dart';
-import 'package:lurp/src/domain/entities/comment.dart';
+import 'package:lurp/src/domain/entities/lurp_comment.dart';
 import 'package:lurp/src/domain/usecases/get_comment_feed.dart';
-import 'package:lurp/src/data/repositories/comment_repository_impl.dart';
+import 'package:lurp/src/data/repositories/lurp_comment_repository_impl.dart';
 import 'package:lurp/src/present/comment_widgets/comment_widget.dart';
-import 'package:lurp/src/domain/entities/post.dart';
+import 'package:lurp/src/domain/entities/lurp_post.dart';
 
 class CommentsSectionContent extends StatefulWidget {
   const CommentsSectionContent({super.key, required this.post});
-  final Post post;
+  final LurpPost post;
 
   @override
   State<CommentsSectionContent> createState() => _CommentsSectionContentState();
 }
 
 class _CommentsSectionContentState extends State<CommentsSectionContent> {
-  final List<Comment> _comments = [];
+  final List<LurpComment> _comments = [];
   bool _isLoading = false;
   bool _hasMore = true;
   String? _cursor;
@@ -24,7 +24,7 @@ class _CommentsSectionContentState extends State<CommentsSectionContent> {
   @override
   void initState() {
     super.initState();
-    _getCommentFeed = GetCommentFeed(repository: CommentRepositoryImpl());
+    _getCommentFeed = GetCommentFeed(repository: LurpCommentRepositoryImpl());
     _loadMoreComments();
   }
 

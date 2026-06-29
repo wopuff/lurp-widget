@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:lurp/src/core/utils/string_utils.dart';
-import 'package:lurp/src/domain/entities/post.dart';
+import 'package:lurp/src/domain/entities/lurp_post.dart';
 import 'package:lurp/src/domain/entities/slider.dart';
 import 'package:lurp/src/present/post_types/slider/slider_markers.dart';
 import 'package:lurp/src/present/post_widgets/animated_stats.dart';
 
 class SliderWidget extends StatelessWidget {
   const SliderWidget({super.key, required this.post});
-  final Post post;
+  final LurpPost post;
 
   SliderPoll get slider => post.slider!;
 

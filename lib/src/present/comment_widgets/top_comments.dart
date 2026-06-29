@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:lurp/src/core/utils/string_utils.dart';
 import 'package:lurp/src/domain/usecases/get_top_comments.dart';
-import 'package:lurp/src/data/repositories/comment_repository_impl.dart';
+import 'package:lurp/src/data/repositories/lurp_comment_repository_impl.dart';
 import 'package:lurp/src/present/comment_widgets/comments_section.dart';
 import 'package:lurp/src/present/comment_widgets/single_top_comment.dart';
-import 'package:lurp/src/domain/entities/post.dart';
-import 'package:lurp/src/domain/entities/comment.dart';
+import 'package:lurp/src/domain/entities/lurp_post.dart';
+import 'package:lurp/src/domain/entities/lurp_comment.dart';
 
 class PostTopComments extends StatefulWidget {
   const PostTopComments({super.key, required this.post});
-  final Post post;
+  final LurpPost post;
 
   static const int commentMaxLength = 150;
 
@@ -26,7 +26,7 @@ class PostTopComments extends StatefulWidget {
 }
 
 class _PostTopCommentsState extends State<PostTopComments> {
-  late Future<List<Comment>> _topCommentsFuture;
+  late Future<List<LurpComment>> _topCommentsFuture;
 
   @override
   void initState() {
@@ -35,7 +35,7 @@ class _PostTopCommentsState extends State<PostTopComments> {
   }
 
   void _loadTopComments() {
-    final getTopComments = GetTopComments(repository: CommentRepositoryImpl());
+    final getTopComments = GetTopComments(repository: LurpCommentRepositoryImpl());
     _topCommentsFuture = getTopComments.call(widget.post);
   }
 
@@ -63,7 +63,7 @@ class _PostTopCommentsState extends State<PostTopComments> {
       onTap: () => _onPressed(context),
       child: MouseRegion(
         cursor: SystemMouseCursors.click,
-        child: FutureBuilder<List<Comment>>(
+        child: FutureBuilder<List<LurpComment>>(
           future: _topCommentsFuture,
           builder: (context, snapshot) {
             final commentsData = snapshot.data ?? [];

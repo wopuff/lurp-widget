@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:lurp/src/core/utils/string_utils.dart';
 import 'package:lurp/src/core/widgets/bottom_sheet.dart';
 import 'package:lurp/src/present/comment_widgets/comments_section_content.dart';
-import 'package:lurp/src/domain/entities/post.dart';
+import 'package:lurp/src/domain/entities/lurp_post.dart';
 
 class CommentsSection extends StatelessWidget {
   const CommentsSection({super.key, required this.post});
-  final Post post;
+  final LurpPost post;
 
   void show(BuildContext context) {
     CustomBottomSheet bottomSheet = CustomBottomSheet(

@@ -15,11 +15,11 @@ class PostInfoBar extends StatelessWidget {
     this.sharePost,
     this.onCreatorTap,
   });
-  final Post post;
+  final LurpPost post;
   final VoidCallback? showInfoSheet;
   final VoidCallback? showDateSheet;
   final VoidCallback? sharePost;
-  final void Function(User creator)? onCreatorTap;
+  final void Function(LurpUser creator)? onCreatorTap;
 
   static const double height = 30;
   static const double spacing = 4;
@@ -110,7 +110,7 @@ class PostInfoBarRightPart extends StatelessWidget {
     this.sharePost,
     this.isInteractable = true,
   });
-  final Post post;
+  final LurpPost post;
   final VoidCallback? showInfoSheet;
   final VoidCallback? sharePost;
   final bool isInteractable;

@@ -9,7 +9,7 @@ A premium, lightweight, and dependency-trimmed Flutter package to embed interact
 
 ## Features
 
-- **Offline & Online Rendering**: Fetch posts automatically using the Lurp backend or feed your own `Post` models manually.
+- **Offline & Online Rendering**: Fetch posts automatically using the Lurp backend or feed your own `LurpPost` models manually.
 - **Visual Poll Types**:
   - **Selection Poll**: Shows options with proportional bar graphs representing vote distributions.
   - **Slider Poll**: Represents ratings on a sliding scale with average results and standard deviation indicators.
@@ -56,9 +56,9 @@ void main() {
 }
 ```
 
-### 2. High-Level Integration (LurpPostWidget)
+### 2. High-Level Integration (Lurp.network)
 
-To display a poll or post dynamically from the Lurp API, use `LurpPostWidget`. It handles request states, loading animations, error fallbacks, and content fetching internally:
+To display a poll or post dynamically from the Lurp API, use `Lurp.network`. It handles request states, loading animations, error fallbacks, and content fetching internally:
 
 ```dart
 import 'package:flutter/material.dart';
@@ -76,7 +76,7 @@ class PollDetailsPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: LurpPostWidget(
+          child: Lurp.network(
             postId: postId,
             onCreatorTap: (creator) {
               // Custom navigation or action when the creator's avatar/username is tapped
@@ -94,23 +94,23 @@ class PollDetailsPage extends StatelessWidget {
 }
 ```
 
-### 3. Lower-Level Custom Rendering (PostWidget)
+### 3. Lower-Level Custom Rendering (Lurp)
 
-If you are caching data locally or constructing mock/custom content, you can bypass the backend and pass a `Post` model directly into `PostWidget`:
+If you are caching data locally or constructing mock/custom content, you can bypass the backend and pass a `LurpPost` model directly into `Lurp`:
 
 ```dart
 import 'package:flutter/material.dart';
 import 'package:lurp/lurp.dart';
 
 Widget buildCustomMockPoll() {
-  final mockCreator = User(
+  final mockCreator = LurpUser(
     uid: 'user-123',
     username: 'LurpDeveloper',
     flatUsername: 'lurpdeveloper',
     rank: 'Pro Creator',
   );
 
-  final mockPost = Post(
+  final mockPost = LurpPost(
     id: 'mock-poll-id',
     type: 'selection',
     state: 'visible',
@@ -134,7 +134,7 @@ Widget buildCustomMockPoll() {
     ),
   );
 
-  return PostWidget(
+  return Lurp(
     post: mockPost,
     onCreatorTap: (creator) => print('Clicked ${creator.username}'),
     onShareTap: (post) => print('Share clicked'),

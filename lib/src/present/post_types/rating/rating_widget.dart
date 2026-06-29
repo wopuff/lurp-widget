@@ -1,21 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:lurp/src/config/assets.dart';
 import 'package:lurp/src/core/utils/string_utils.dart';
-import 'package:lurp/src/domain/entities/post.dart';
+import 'package:lurp/src/core/widgets/icon_asset.dart';
+import 'package:lurp/src/domain/entities/lurp_post.dart';
 import 'package:lurp/src/domain/entities/rating.dart';
 import 'package:lurp/src/present/post_widgets/animated_stats.dart';
 
-class RatingWidget extends StatelessWidget {
+class RatingWidget extends StatefulWidget {
   const RatingWidget({super.key, required this.post});
-  final Post post;
 
-  RatingPoll get poll => post.rating!;
+  final LurpPost post;
+
+  @override
+  State<RatingWidget> createState() => _RatingWidgetState();
+}
+
+class _RatingWidgetState extends State<RatingWidget> {
+  RatingPoll get poll => widget.post.rating!;
 
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
 
+    final hasVoted = poll.siuVote != null;
     final totalStars = poll.starCount <= 0 ? 5 : poll.starCount;
     final averageValue = poll.averageValue;
+
+    final currentVoteValue = poll.siuVote ?? 0;
+    final selectedStarsCount = currentVoteValue;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -26,6 +38,7 @@ class RatingWidget extends StatelessWidget {
         LayoutBuilder(
           builder: (context, constraints) {
             final double starSize = constraints.maxWidth / totalStars;
+            const double artworkRatio = 0.55;
 
             return SizedBox(
               height: starSize,
@@ -33,54 +46,109 @@ class RatingWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: List.generate(totalStars, (index) {
                   final starIndexValue = index + 1;
+                  final isUserVotedStar =
+                      hasVoted && (starIndexValue <= selectedStarsCount);
 
                   return SizedBox(
                     width: starSize,
                     height: starSize,
-                    child: Center(
-                      child: Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          // 1. BASE STAR (EMPTY)
-                          Center(
-                            child: Icon(
-                              Icons.star_border,
-                              size: starSize,
-                              color: colorScheme.secondary,
-                            ),
-                          ),
-
-                          // 2. CONDITIONAL INNER OVERLAY STAR (Clipped)
-                          Builder(
-                            builder: (context) {
-                              double targetCutPercentage = 0.0;
-
-                              if (averageValue >= starIndexValue) {
-                                targetCutPercentage = 1.0;
-                              } else if (averageValue > starIndexValue - 1) {
-                                targetCutPercentage =
-                                    averageValue - (starIndexValue - 1);
-                              }
-
-                              if (targetCutPercentage <= 0.0) {
-                                return const SizedBox.shrink();
-                              }
-
-                              return Center(
-                                child: ClipRect(
-                                  clipper: StarArtworkClipper(
-                                    fillFactor: targetCutPercentage,
-                                  ),
-                                  child: Icon(
-                                    Icons.star,
+                    child: MouseRegion(
+                      cursor: hasVoted
+                          ? SystemMouseCursors.basic
+                          : SystemMouseCursors.click,
+                      child: GestureDetector(
+                        onTap: hasVoted
+                            ? null
+                            : () {
+                                setState(() {
+                                  widget.post.addVote(
+                                    null,
+                                    starIndexValue.toDouble(),
+                                  );
+                                });
+                              },
+                        child: Center(
+                          child: Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              // 1. BACKGROUND GLOWING STAR
+                              if (isUserVotedStar)
+                                Center(
+                                  child: IconAsset(
+                                    Assets.ratingStarBig,
                                     size: starSize,
-                                    color: colorScheme.primary,
+                                    color: colorScheme.onSurface,
                                   ),
                                 ),
-                              );
-                            },
+
+                              // 2. BASE STAR
+                              Center(
+                                child: IconAsset(
+                                  Assets.ratingStarMedium,
+                                  size: starSize,
+                                  color: colorScheme.secondary,
+                                ),
+                              ),
+
+                              // 3. CONDITIONAL INNER OVERLAY STAR (With Left-to-Right Wipe Animation)
+                              Builder(
+                                builder: (context) {
+                                  bool shouldRender = false;
+                                  double targetCutPercentage = 1.0;
+                                  Color fillColor = colorScheme.onSurface;
+
+                                  if (hasVoted) {
+                                    if (averageValue >= starIndexValue) {
+                                      shouldRender = true;
+                                      targetCutPercentage = 1.0;
+                                    } else if (averageValue >
+                                        starIndexValue - 1) {
+                                      shouldRender = true;
+                                      targetCutPercentage =
+                                          averageValue - (starIndexValue - 1);
+                                    }
+                                    fillColor = colorScheme.primary;
+                                  } else {
+                                    shouldRender = false;
+                                    targetCutPercentage = 0.0;
+                                    fillColor = Colors.white;
+                                  }
+
+                                  if (!shouldRender) {
+                                    return const SizedBox.shrink();
+                                  }
+
+                                  return Center(
+                                    child: TweenAnimationBuilder<double>(
+                                      // Animate the averageValue results on reveal
+                                      tween: Tween<double>(
+                                        begin: 0.0,
+                                        end: targetCutPercentage,
+                                      ),
+                                      duration: const Duration(
+                                        milliseconds: 1000,
+                                      ),
+                                      curve: Curves.easeInCubic,
+                                      builder: (context, animatedFill, child) {
+                                        return ClipRect(
+                                          clipper: StarArtworkClipper(
+                                            fillFactor: animatedFill,
+                                            visibleArtworkRatio: artworkRatio,
+                                          ),
+                                          child: IconAsset(
+                                            Assets.ratingStarSmall,
+                                            size: starSize,
+                                            color: fillColor,
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                  );
+                                },
+                              ),
+                            ],
                           ),
-                        ],
+                        ),
                       ),
                     ),
                   );
@@ -92,7 +160,7 @@ class RatingWidget extends StatelessWidget {
 
         // stats
         AnimatedStats(
-          hasVoted: true,
+          hasVoted: hasVoted,
           text:
               '${poll.voteCount} ${'vote'.plural(poll.voteCount)}, ${poll.formattedAverage} average',
         ),
@@ -104,16 +172,31 @@ class RatingWidget extends StatelessWidget {
 }
 
 class StarArtworkClipper extends CustomClipper<Rect> {
-  StarArtworkClipper({required this.fillFactor});
+  StarArtworkClipper({
+    required this.fillFactor,
+    required this.visibleArtworkRatio,
+  });
+
   final double fillFactor;
+  final double visibleArtworkRatio;
 
   @override
   Rect getClip(Size size) {
-    return Rect.fromLTWH(0, 0, size.width * fillFactor, size.height);
+    if (fillFactor >= 1.0) {
+      return Rect.fromLTWH(0, 0, size.width, size.height);
+    }
+
+    double totalPaddingWidth = size.width * (1.0 - visibleArtworkRatio);
+    double starLeftEdge = totalPaddingWidth / 2;
+    double starVisibleWidth = size.width * visibleArtworkRatio;
+    double dynamicClipWidth = starLeftEdge + (starVisibleWidth * fillFactor);
+
+    return Rect.fromLTWH(0, 0, dynamicClipWidth, size.height);
   }
 
   @override
   bool shouldReclip(StarArtworkClipper oldClipper) {
-    return oldClipper.fillFactor != fillFactor;
+    return oldClipper.fillFactor != fillFactor ||
+        oldClipper.visibleArtworkRatio != visibleArtworkRatio;
   }
 }

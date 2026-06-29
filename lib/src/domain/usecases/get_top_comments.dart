@@ -1,12 +1,12 @@
 import 'package:lurp/src/config/logger.dart';
-import 'package:lurp/src/domain/repositories/comment_repository.dart';
+import 'package:lurp/src/domain/repositories/lurp_comment_repository.dart';
 import 'package:lurp/src/core/entities/common.dart';
 
 class GetTopComments {
   GetTopComments({required this.repository});
-  final CommentRepository repository;
+  final LurpCommentRepository repository;
 
-  Future<List<Comment>> call(Post post) async {
+  Future<List<LurpComment>> call(LurpPost post) async {
     if (post.id.isEmpty) return [];
 
     try {

@@ -35,16 +35,16 @@ class ExampleHomeScreen extends StatefulWidget {
 class _ExampleHomeScreenState extends State<ExampleHomeScreen> {
   int _currentIndex = 0;
   final TextEditingController _postIdController = TextEditingController(
-    text: 'test-post-id',
+    text: 'eLXplNKyfrb',
   );
 
-  // List of mock posts to render directly using PostWidget
-  late final List<Post> _mockPosts;
+  // List of mock posts to render directly using Lurp
+  late final List<LurpPost> _mockPosts;
 
   @override
   void initState() {
     super.initState();
-    final mockCreator = User(
+    final mockCreator = LurpUser(
       uid: 'user-123',
       username: 'LurpDeveloper',
       flatUsername: 'lurpdeveloper',
@@ -53,7 +53,7 @@ class _ExampleHomeScreenState extends State<ExampleHomeScreen> {
 
     _mockPosts = [
       // 1. Selection Poll
-      Post(
+      LurpPost(
         id: 'poll-selection',
         type: 'selection',
         state: 'visible',
@@ -83,7 +83,7 @@ class _ExampleHomeScreenState extends State<ExampleHomeScreen> {
       ),
 
       // 2. Slider Poll
-      Post(
+      LurpPost(
         id: 'poll-slider',
         type: 'slider',
         state: 'visible',
@@ -108,7 +108,7 @@ class _ExampleHomeScreenState extends State<ExampleHomeScreen> {
       ),
 
       // 3. Rating Poll
-      Post(
+      LurpPost(
         id: 'poll-rating',
         type: 'rating',
         state: 'visible',
@@ -130,7 +130,7 @@ class _ExampleHomeScreenState extends State<ExampleHomeScreen> {
       ),
 
       // 4. Thought Post
-      Post(
+      LurpPost(
         id: 'thought-post',
         type: 'thought',
         state: 'visible',
@@ -189,7 +189,7 @@ class _ExampleHomeScreenState extends State<ExampleHomeScreen> {
                 ),
               ),
               const SizedBox(height: 10),
-              PostWidget(
+              Lurp(
                 post: _mockPosts[_currentIndex],
                 onCreatorTap: (creator) {
                   ScaffoldMessenger.of(context).showSnackBar(
@@ -233,7 +233,7 @@ class _ExampleHomeScreenState extends State<ExampleHomeScreen> {
                       const SizedBox(height: 12),
                       ElevatedButton.icon(
                         icon: const Icon(Icons.download),
-                        label: const Text('Load Live PostWidget'),
+                        label: const Text('Load Live Lurp'),
                         onPressed: () {
                           final id = _postIdController.text.trim();
                           if (id.isEmpty) return;
@@ -245,7 +245,7 @@ class _ExampleHomeScreenState extends State<ExampleHomeScreen> {
                                 body: Padding(
                                   padding: const EdgeInsets.all(16.0),
                                   child: SingleChildScrollView(
-                                    child: LurpPostWidget(postId: id),
+                                    child: Lurp.network(postId: id),
                                   ),
                                 ),
                               ),

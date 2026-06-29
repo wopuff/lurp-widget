@@ -1,12 +1,12 @@
 import 'package:lurp/src/config/logger.dart';
-import 'package:lurp/src/domain/entities/post.dart';
-import 'package:lurp/src/domain/repositories/post_repository.dart';
+import 'package:lurp/src/domain/entities/lurp_post.dart';
+import 'package:lurp/src/domain/repositories/lurp_post_repository.dart';
 
 class GetPost {
   GetPost({required this.repository});
-  final PostRepository repository;
+  final LurpPostRepository repository;
 
-  Future<Post?> call(String postId) async {
+  Future<LurpPost?> call(String postId) async {
     try {
       final post = await repository.getPost(postId);
       return post;

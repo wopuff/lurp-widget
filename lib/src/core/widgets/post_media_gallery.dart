@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:lurp/src/domain/entities/post.dart';
+import 'package:lurp/src/domain/entities/lurp_post.dart';
 
 class PostMediaGallery extends StatelessWidget {
   const PostMediaGallery({super.key, required this.post});
-  final Post post;
+  final LurpPost post;
 
   void _openFullScreenViewer(BuildContext context, String url) {
     Navigator.of(context).push(

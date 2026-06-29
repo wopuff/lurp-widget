@@ -1,3 +1,3 @@
-export 'package:lurp/src/core/entities/user.dart';
-export 'package:lurp/src/domain/entities/post.dart';
-export 'package:lurp/src/domain/entities/comment.dart';
+export 'package:lurp/src/core/entities/lurp_user.dart';
+export 'package:lurp/src/domain/entities/lurp_post.dart';
+export 'package:lurp/src/domain/entities/lurp_comment.dart';

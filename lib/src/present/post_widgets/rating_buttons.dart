@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lurp/src/core/utils/color_utils.dart';
 import 'package:lurp/src/core/utils/format_utils.dart';
-import 'package:lurp/src/domain/entities/post.dart';
+import 'package:lurp/src/domain/entities/lurp_post.dart';
 import 'package:lurp/src/present/post_widgets/infobar_button.dart';
 
 class PostRatingButtons extends StatelessWidget {
@@ -10,7 +10,7 @@ class PostRatingButtons extends StatelessWidget {
     required this.post,
     this.isInteractable = false,
   });
-  final Post post;
+  final LurpPost post;
   final bool isInteractable;
 
   @override

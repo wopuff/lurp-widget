@@ -1,3 +1,10 @@
+## 0.1.0
+* **Breaking Change (Namespacing Refactor):** Prefixed generic public classes and files with `Lurp` (e.g., `User` -> `LurpUser`, `Post` -> `LurpPost`, `Comment` -> `LurpComment`, `PostRepository` -> `LurpPostRepository`) to prevent namespace collisions when implementing the package in host applications.
+* **Feature:** Upgraded `RatingWidget` to support custom layered SVG stars and animated wipe reveals utilizing `StarArtworkClipper` (with 0.55 visible ratio) and `IconAsset`.
+* **Feature:** Added interactive state support to `RatingWidget` via self-contained StatefulWidget logic that triggers rating animations on click.
+* **Dependency:** Added `flutter_svg` to `pubspec.yaml` to enable vector graphics support.
+* **Testing:** Fixed the example app's test suite to use the updated class structure and verified everything with passing tests.
+
 ## 0.0.5
 * **Refactored:** Replaced external `logger` package dependency with a lightweight, custom `LurpLogger` using `dart:developer` and `print` for Web support.
 * **Dependency Update:** Upgraded `dio` constraint to `^5.6.0`.

@@ -8,7 +8,7 @@ class CustomTextField extends StatelessWidget {
     super.key,
     required this.controller,
     this.hintText = '',
-    this.maxLength = User.maxUsernameLength,
+    this.maxLength = LurpUser.maxUsernameLength,
     this.obscureText = false,
     this.textInputType = TextInputType.multiline,
     this.textCapitalization = TextCapitalization.sentences,
