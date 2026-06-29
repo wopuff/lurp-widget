@@ -1,3 +1,8 @@
+## 0.0.5
+* **Refactored:** Replaced external `logger` package dependency with a lightweight, custom `LurpLogger` using `dart:developer` and `print` for Web support.
+* **Dependency Update:** Upgraded `dio` constraint to `^5.6.0`.
+* **Maintenance:** Cleaned up unused comments and updated description in `example/pubspec.yaml`.
+
 ## 0.0.4
 * **Fixed:** Corrected `SocketException` handling for non-Web platforms by introducing platform-specific implementations for connection error detection.
 * **Refactored:** Updated `ApiClient` to use platform-specific connection error checking instead of direct `dart:io` imports.
