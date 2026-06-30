@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lurp/src/core/utils/string_utils.dart';
-import 'package:lurp/src/present/common/bottom_sheet.dart';
-import 'package:lurp/src/present/comments/comments_section_content.dart';
+import 'package:lurp/src/presentation/common/bottom_sheet.dart';
+import 'package:lurp/src/presentation/comments/comments_section_content.dart';
 import 'package:lurp/src/domain/entities/lurp_post.dart';
 
 class CommentsSection extends StatelessWidget {

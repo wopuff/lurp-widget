@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lurp/src/present/common/progress_indicator.dart';
+import 'package:lurp/src/presentation/common/progress_indicator.dart';
 
 class PageOverlay {
   static OverlayEntry? _overlayEntry;

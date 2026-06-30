@@ -1,7 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:lurp/src/core/utils/string_utils.dart';
-import 'package:lurp/src/present/common/outline.dart';
+import 'package:lurp/src/presentation/common/outline.dart';
 
 class PollOptionButton extends StatelessWidget {
   const PollOptionButton({

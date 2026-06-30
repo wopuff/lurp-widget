@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lurp/src/core/utils/color_utils.dart';
 import 'package:lurp/src/domain/entities/lurp_comment.dart';
-import 'package:lurp/src/present/comments/top_comments.dart';
+import 'package:lurp/src/presentation/comments/top_comments.dart';
 import 'package:lurp/src/domain/entities/lurp_post.dart';
 
 class SingleTopCommentWidget extends StatelessWidget {

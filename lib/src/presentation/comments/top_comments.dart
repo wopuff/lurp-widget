@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:lurp/src/core/utils/string_utils.dart';
 import 'package:lurp/src/domain/usecases/get_top_comments.dart';
 import 'package:lurp/src/data/repositories/lurp_comment_repository_impl.dart';
-import 'package:lurp/src/present/comments/comments_section.dart';
-import 'package:lurp/src/present/comments/single_top_comment.dart';
+import 'package:lurp/src/presentation/comments/comments_section.dart';
+import 'package:lurp/src/presentation/comments/single_top_comment.dart';
 import 'package:lurp/src/domain/entities/lurp_post.dart';
 import 'package:lurp/src/domain/entities/lurp_comment.dart';
 

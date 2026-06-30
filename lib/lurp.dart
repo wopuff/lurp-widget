@@ -9,4 +9,4 @@ export 'src/domain/entities/rating.dart';
 export 'src/domain/entities/selection.dart';
 export 'src/domain/entities/slider.dart';
 export 'src/domain/entities/thought.dart';
-export 'src/present/lurp_widget.dart';
+export 'src/presentation/lurp_widget.dart';

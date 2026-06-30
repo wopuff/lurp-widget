@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lurp/src/core/utils/color_utils.dart';
 import 'package:lurp/src/core/utils/format_utils.dart';
 import 'package:lurp/src/domain/entities/lurp_post.dart';
-import 'package:lurp/src/present/posts/shared/infobar_button.dart';
+import 'package:lurp/src/presentation/posts/shared/infobar_button.dart';
 
 class PostRatingButtons extends StatelessWidget {
   const PostRatingButtons({

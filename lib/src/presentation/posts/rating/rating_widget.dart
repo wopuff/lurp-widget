@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:lurp/src/core/assets.dart';
 import 'package:lurp/src/core/utils/string_utils.dart';
-import 'package:lurp/src/present/common/icon_asset.dart';
+import 'package:lurp/src/presentation/common/icon_asset.dart';
 import 'package:lurp/src/domain/entities/lurp_post.dart';
 import 'package:lurp/src/domain/entities/rating.dart';
-import 'package:lurp/src/present/posts/shared/animated_stats.dart';
+import 'package:lurp/src/presentation/posts/shared/animated_stats.dart';
 
 class RatingWidget extends StatefulWidget {
   const RatingWidget({super.key, required this.post});

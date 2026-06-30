@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lurp/src/core/theme/poll_colors.dart';
 import 'package:lurp/src/domain/entities/selection.dart';
 import 'package:lurp/src/domain/entities/lurp_post.dart';
-import 'package:lurp/src/present/posts/selection/poll_option_button.dart';
+import 'package:lurp/src/presentation/posts/selection/poll_option_button.dart';
 
 class PollOptionsWidget extends StatelessWidget {
   const PollOptionsWidget({super.key, required this.post});

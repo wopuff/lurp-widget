@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lurp/src/present/common/smart_text.dart';
+import 'package:lurp/src/presentation/common/smart_text.dart';
 import 'package:lurp/src/domain/entities/thought.dart';
 
 class ThoughtWidget extends StatelessWidget {

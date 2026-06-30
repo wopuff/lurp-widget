@@ -1,4 +1,4 @@
-import 'package:lurp/src/core/lurp_config.dart';
+import 'package:lurp/src/core/config.dart';
 
 /// Represents a user within the Lurp system.
 class LurpUser {

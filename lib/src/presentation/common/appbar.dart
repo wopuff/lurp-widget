@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lurp/src/present/common/divider.dart';
+import 'package:lurp/src/presentation/common/divider.dart';
 import 'package:lurp/src/core/utils/layout_utils.dart';
 
 class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {

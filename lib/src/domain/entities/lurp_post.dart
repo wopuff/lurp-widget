@@ -1,4 +1,4 @@
-import 'package:lurp/src/core/lurp_config.dart';
+import 'package:lurp/src/core/config.dart';
 import 'package:lurp/src/core/misc/post_type.dart';
 import 'package:lurp/src/domain/entities/media_entity.dart';
 import 'package:lurp/src/domain/entities/selection.dart';

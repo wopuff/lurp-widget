@@ -3,8 +3,8 @@ import 'package:lurp/src/core/utils/color_utils.dart';
 import 'package:lurp/src/core/utils/date_utils.dart';
 
 import 'package:lurp/src/domain/entities/entities.dart';
-import 'package:lurp/src/present/posts/shared/infobar_button.dart';
-import 'package:lurp/src/present/posts/shared/rating_buttons.dart';
+import 'package:lurp/src/presentation/posts/shared/infobar_button.dart';
+import 'package:lurp/src/presentation/posts/shared/rating_buttons.dart';
 
 class PostInfoBar extends StatelessWidget {
   const PostInfoBar({

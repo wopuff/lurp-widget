@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:lurp/src/present/common/progress_indicator.dart';
+import 'package:lurp/src/presentation/common/progress_indicator.dart';
 import 'package:lurp/src/domain/entities/lurp_comment.dart';
 import 'package:lurp/src/domain/usecases/get_comment_feed.dart';
 import 'package:lurp/src/data/repositories/lurp_comment_repository_impl.dart';
-import 'package:lurp/src/present/comments/comment_widget.dart';
+import 'package:lurp/src/presentation/comments/comment_widget.dart';
 import 'package:lurp/src/domain/entities/lurp_post.dart';
 
 class CommentsSectionContent extends StatefulWidget {

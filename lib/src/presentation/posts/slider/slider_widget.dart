@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:lurp/src/core/utils/string_utils.dart';
 import 'package:lurp/src/domain/entities/lurp_post.dart';
 import 'package:lurp/src/domain/entities/slider.dart';
-import 'package:lurp/src/present/posts/slider/slider_markers.dart';
-import 'package:lurp/src/present/posts/shared/animated_stats.dart';
+import 'package:lurp/src/presentation/posts/slider/slider_markers.dart';
+import 'package:lurp/src/presentation/posts/shared/animated_stats.dart';
 
 class SliderWidget extends StatelessWidget {
   const SliderWidget({super.key, required this.post});
