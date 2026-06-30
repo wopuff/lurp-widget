@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'package:lurp/src/config/lurp_config.dart';
-import 'package:lurp/src/config/api_client.dart';
-import 'package:lurp/src/core/entities/common.dart';
-import 'package:lurp/src/core/widgets/post_media_gallery.dart';
-import 'package:lurp/src/core/widgets/progress_indicator.dart';
+import 'package:lurp/src/core/lurp_config.dart';
+import 'package:lurp/src/core/api/api_client.dart';
+import 'package:lurp/src/domain/entities/entities.dart';
+import 'package:lurp/src/present/common/post_media_gallery.dart';
+import 'package:lurp/src/present/common/progress_indicator.dart';
 import 'package:lurp/src/data/repositories/lurp_post_repository_impl.dart';
 import 'package:lurp/src/domain/usecases/get_post.dart';
-import 'package:lurp/src/present/comment_widgets/top_comments.dart';
-import 'package:lurp/src/present/post_types/rating/rating_widget.dart';
-import 'package:lurp/src/present/post_types/selection/selection_widget.dart';
-import 'package:lurp/src/present/post_types/slider/slider_widget.dart';
-import 'package:lurp/src/present/post_types/thought/thought_widget.dart';
-import 'package:lurp/src/present/post_widgets/infobar.dart';
-import 'package:lurp/src/present/post_widgets/post_title.dart';
+import 'package:lurp/src/present/comments/top_comments.dart';
+import 'package:lurp/src/present/posts/rating/rating_widget.dart';
+import 'package:lurp/src/present/posts/selection/selection_widget.dart';
+import 'package:lurp/src/present/posts/slider/slider_widget.dart';
+import 'package:lurp/src/present/posts/thought/thought_widget.dart';
+import 'package:lurp/src/present/posts/shared/infobar.dart';
+import 'package:lurp/src/present/posts/shared/post_title.dart';
 
 /// A widget that displays a [LurpPost]. It can either render a local/in-memory `LurpPost` model
 /// immediately or fetch a post by its ID dynamically from the Lurp API.

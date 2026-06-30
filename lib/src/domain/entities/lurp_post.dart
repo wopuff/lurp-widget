@@ -1,12 +1,12 @@
-import 'package:lurp/src/config/lurp_config.dart';
+import 'package:lurp/src/core/lurp_config.dart';
 import 'package:lurp/src/core/misc/post_type.dart';
-import 'package:lurp/src/core/entities/media_entity.dart';
+import 'package:lurp/src/domain/entities/media_entity.dart';
 import 'package:lurp/src/domain/entities/selection.dart';
 import 'package:lurp/src/domain/entities/ranking.dart';
 import 'package:lurp/src/domain/entities/rating.dart';
 import 'package:lurp/src/domain/entities/slider.dart';
 import 'package:lurp/src/domain/entities/thought.dart';
-import 'package:lurp/src/core/entities/common.dart';
+import 'package:lurp/src/domain/entities/entities.dart';
 
 /// Represents a post within the Lurp system, which can be of various types (e.g. thought, selection, slider, rating, ranking).
 class LurpPost {

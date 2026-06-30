@@ -1,6 +1,6 @@
-import 'package:lurp/src/config/logger.dart';
+import 'package:lurp/src/core/logger.dart';
 import 'package:lurp/src/domain/repositories/lurp_comment_repository.dart';
-import 'package:lurp/src/core/entities/common.dart';
+import 'package:lurp/src/domain/entities/entities.dart';
 
 class GetTopComments {
   GetTopComments({required this.repository});

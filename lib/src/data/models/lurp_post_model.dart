@@ -1,11 +1,11 @@
-import 'package:lurp/src/core/entities/common.dart';
-import 'package:lurp/src/core/entities/media_entity.dart';
+import 'package:lurp/src/domain/entities/entities.dart';
+import 'package:lurp/src/domain/entities/media_entity.dart';
 import 'package:lurp/src/domain/entities/selection.dart';
 import 'package:lurp/src/domain/entities/ranking.dart';
 import 'package:lurp/src/domain/entities/rating.dart';
 import 'package:lurp/src/domain/entities/slider.dart';
 import 'package:lurp/src/domain/entities/thought.dart';
-import 'package:lurp/src/config/logger.dart';
+import 'package:lurp/src/core/logger.dart';
 
 class LurpPostModel {
   LurpPostModel({

@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:lurp/src/config/api_client.dart';
+import 'package:lurp/src/core/api/api_client.dart';
 
 class RateLimitException implements Exception {
   // seconds remaining of rate limit

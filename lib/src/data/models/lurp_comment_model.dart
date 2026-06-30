@@ -1,5 +1,5 @@
-import 'package:lurp/src/core/entities/common.dart';
-import 'package:lurp/src/config/logger.dart';
+import 'package:lurp/src/domain/entities/entities.dart';
+import 'package:lurp/src/core/logger.dart';
 
 class LurpCommentModel {
   LurpCommentModel({
@@ -25,7 +25,8 @@ class LurpCommentModel {
         id: data['id'] ?? 'unknown_id',
         auhtorId: data['authorId'] ?? LurpUser.unknownUid,
         authorUsername: data['authorUsername'] ?? LurpUser.unknownUsername,
-        authorFlatUsername: data['authorFlatUsername'] ?? LurpUser.unknownUsername,
+        authorFlatUsername:
+            data['authorFlatUsername'] ?? LurpUser.unknownUsername,
         authorRank: data['authorRank'] ?? LurpUser.defaultRank,
         replyToAuthorUsername: data['replyToAuthorUsername'],
         createdByCurrentUser: data['createdByCurrentUser'] ?? false,

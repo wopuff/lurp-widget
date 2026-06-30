@@ -1,5 +1,5 @@
 import 'package:lurp/src/data/models/lurp_comment_model.dart';
-import 'package:lurp/src/core/entities/common.dart';
+import 'package:lurp/src/domain/entities/entities.dart';
 
 /// Represents a user comment on a post within the widget system.
 class LurpComment {

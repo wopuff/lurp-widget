@@ -3,7 +3,7 @@
 library;
 
 export 'src/domain/entities/lurp_comment.dart';
-export 'src/core/entities/common.dart';
+export 'src/domain/entities/entities.dart';
 export 'src/domain/entities/lurp_post.dart';
 export 'src/domain/entities/rating.dart';
 export 'src/domain/entities/selection.dart';

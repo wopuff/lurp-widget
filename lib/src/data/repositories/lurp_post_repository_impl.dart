@@ -1,8 +1,8 @@
-import 'package:lurp/src/config/api_client.dart';
-import 'package:lurp/src/config/logger.dart';
+import 'package:lurp/src/core/api/api_client.dart';
+import 'package:lurp/src/core/logger.dart';
 import 'package:lurp/src/data/models/lurp_post_model.dart';
 import 'package:lurp/src/domain/repositories/lurp_post_repository.dart';
-import 'package:lurp/src/core/entities/common.dart';
+import 'package:lurp/src/domain/entities/entities.dart';
 
 class LurpPostRepositoryImpl implements LurpPostRepository {
   LurpPostRepositoryImpl();

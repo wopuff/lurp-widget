@@ -1,4 +1,4 @@
-import 'package:lurp/src/config/logger.dart';
+import 'package:lurp/src/core/logger.dart';
 import 'package:lurp/src/domain/entities/lurp_comment.dart';
 import 'package:lurp/src/domain/entities/comments_feed.dart';
 import 'package:lurp/src/domain/repositories/lurp_comment_repository.dart';
