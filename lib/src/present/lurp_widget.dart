@@ -20,29 +20,28 @@ import 'package:lurp/src/present/post_widgets/post_title.dart';
 /// immediately or fetch a post by its ID dynamically from the Lurp API.
 class Lurp extends StatefulWidget {
   /// Renders a post directly using the provided [LurpPost] entity.
-  const Lurp({
+  const Lurp.local({
     super.key,
     required LurpPost post,
     this.onCreatorTap,
     this.onShareTap,
-  })  : _post = post,
-        _postId = null;
+  }) : _post = post,
+       _postId = null;
 
   /// Fetches a post by its ID from the Lurp API and renders it.
-  const Lurp.network({
+  const Lurp({
     super.key,
     required String postId,
     this.onCreatorTap,
     this.onShareTap,
-  })  : _post = null,
-        _postId = postId;
+  }) : _post = null,
+       _postId = postId;
 
   /// Initializes the Lurp configuration and network clients.
   ///
-  /// Requires an [apiKey] to authenticate requests, and an optional [isProd]
-  /// flag to toggle between production and staging environments (defaults to true).
-  static void initialize({required String apiKey, bool isProd = true}) {
-    ApiClient.initialize(apiKey: apiKey, isProd: isProd);
+  /// Optionally accepts an [apiKey] if you have a Lurp API key to authenticate requests.
+  static void initialize({String? apiKey}) {
+    ApiClient.initialize(apiKey: apiKey);
   }
 
   /// The web base URL used for posts and profile links.

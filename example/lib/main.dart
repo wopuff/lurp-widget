@@ -3,7 +3,7 @@ import 'package:lurp/lurp.dart';
 
 void main() {
   // Initialize Lurp configurations
-  Lurp.initialize(apiKey: 'example-api-key', isProd: true);
+  Lurp.initialize(apiKey: 'example-api-key');
   runApp(const MyApp());
 }
 
@@ -189,7 +189,7 @@ class _ExampleHomeScreenState extends State<ExampleHomeScreen> {
                 ),
               ),
               const SizedBox(height: 10),
-              Lurp(
+              Lurp.local(
                 post: _mockPosts[_currentIndex],
                 onCreatorTap: (creator) {
                   ScaffoldMessenger.of(context).showSnackBar(
@@ -245,7 +245,7 @@ class _ExampleHomeScreenState extends State<ExampleHomeScreen> {
                                 body: Padding(
                                   padding: const EdgeInsets.all(16.0),
                                   child: SingleChildScrollView(
-                                    child: Lurp.network(postId: id),
+                                    child: Lurp(postId: id),
                                   ),
                                 ),
                               ),

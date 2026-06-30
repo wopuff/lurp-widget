@@ -1,9 +1,9 @@
-# Lurp Widgets
+# Lurp Widget
 
 [![pub package](https://img.shields.io/pub/v/lurp.svg)](https://pub.dev/packages/lurp)
 [![pub points](https://img.shields.io/pub/points/lurp.svg)](https://pub.dev/packages/lurp)
 
-A premium, lightweight, and dependency-trimmed Flutter package to embed interactive, read-only stats for polls, posts, and comments directly from the Lurp ecosystem into your Flutter apps.
+A premium, lightweight Flutter widget to embed interactive stats for polls, posts and comments using custom data or fetching directly from the Lurp backend's vast collection.
 
 ---
 
@@ -40,25 +40,25 @@ flutter pub get
 
 ### 1. Initialize Configuration
 
-Call `Lurp.initialize` before launching your app (e.g., in `main()`) to register your API key and set the target environment:
+Call `Lurp.initialize` before launching your app (e.g., in `main()`). If you have a Lurp API key, you put it here when you initialize (it is optional):
 
 ```dart
 import 'package:flutter/material.dart';
 import 'package:lurp/lurp.dart';
 
 void main() {
-  // Setup Lurp package configurations
+  // Setup Lurp package configurations.
+  // If you have a Lurp API key, you put it here when you initialize:
   Lurp.initialize(
-    apiKey: 'YOUR_LURP_API_KEY',
-    isProd: true, // Use false to connect to dev.api.lurp.it instead of the production API
+    apiKey: 'YOUR_LURP_API_KEY', // Optional
   );
   runApp(const MyApp());
 }
 ```
 
-### 2. High-Level Integration (Lurp.network)
+### 2. High-Level Integration (Lurp)
 
-To display a poll or post dynamically from the Lurp API, use `Lurp.network`. It handles request states, loading animations, error fallbacks, and content fetching internally:
+To display a poll or post dynamically from the Lurp API, use the default `Lurp` constructor. It handles request states, loading animations, error fallbacks, and content fetching internally:
 
 ```dart
 import 'package:flutter/material.dart';
@@ -76,7 +76,7 @@ class PollDetailsPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Lurp.network(
+          child: Lurp(
             postId: postId,
             onCreatorTap: (creator) {
               // Custom navigation or action when the creator's avatar/username is tapped
@@ -94,9 +94,9 @@ class PollDetailsPage extends StatelessWidget {
 }
 ```
 
-### 3. Lower-Level Custom Rendering (Lurp)
+### 3. Lower-Level Custom Rendering (Lurp.local)
 
-If you are caching data locally or constructing mock/custom content, you can bypass the backend and pass a `LurpPost` model directly into `Lurp`:
+If you are caching data locally or constructing mock/custom content, you can bypass the backend and pass a `LurpPost` model directly into `Lurp.local`:
 
 ```dart
 import 'package:flutter/material.dart';
@@ -134,7 +134,7 @@ Widget buildCustomMockPoll() {
     ),
   );
 
-  return Lurp(
+  return Lurp.local(
     post: mockPost,
     onCreatorTap: (creator) => print('Clicked ${creator.username}'),
     onShareTap: (post) => print('Share clicked'),

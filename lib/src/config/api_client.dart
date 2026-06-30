@@ -5,8 +5,7 @@ import 'connection_error/connection_error_stub.dart'
     if (dart.library.io) 'connection_error/connection_error_io.dart';
 
 class ApiClient {
-  ApiClient._({required this.apiKey, bool isProd = true})
-    : baseUrl = isProd ? 'https://api.lurp.it/' : 'https://dev.api.lurp.it/' {
+  ApiClient._({this.apiKey}) : baseUrl = 'https://api.lurp.it/' {
     _dio = Dio(
       BaseOptions(
         baseUrl: baseUrl,
@@ -14,8 +13,8 @@ class ApiClient {
         receiveTimeout: const Duration(seconds: 10),
         headers: {
           'Content-Type': 'application/json',
-          'X-Platform': _platformHeader,
-          // 'X-Lurp-API-Key': apiKey,
+          'Lurp-Platform': _platformHeader,
+          if (apiKey != null) 'Lurp-Access-Token': apiKey,
         },
       ),
     );
@@ -31,11 +30,11 @@ class ApiClient {
     return _instance!;
   }
 
-  static void initialize({required String apiKey, bool isProd = true}) {
-    _instance = ApiClient._(apiKey: apiKey, isProd: isProd);
+  static void initialize({String? apiKey}) {
+    _instance = ApiClient._(apiKey: apiKey);
   }
 
-  final String apiKey;
+  final String? apiKey;
   final String baseUrl;
   late final Dio _dio;
 
