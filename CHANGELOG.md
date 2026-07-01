@@ -1,3 +1,9 @@
+## 0.2.0
+* **Breaking Change:** Swapped the primary `Lurp` widget constructors: the default unnamed `Lurp(...)` constructor now fetches posts dynamically from the network via `postId`, and `Lurp.local(...)` renders pre-loaded local models.
+* **Breaking Change:** Removed all development environment API parameters (`isProd` and the `dev.api.lurp.it` configuration) to route all network traffic directly to the production endpoint.
+* **Feature:** Made the `apiKey` parameter optional in `Lurp.initialize(...)`. When provided, it is securely transmitted using a custom `Lurp-Access-Token` request header.
+* **Refactor:** Reorganized the internal directory structure to follow Clean Architecture principles, grouping code under `src/core/`, `src/domain/`, `src/data/`, and `src/presentation/`.
+
 ## 0.1.0
 * **Breaking Change (Namespacing Refactor):** Prefixed generic public classes and files with `Lurp` (e.g., `User` -> `LurpUser`, `Post` -> `LurpPost`, `Comment` -> `LurpComment`, `PostRepository` -> `LurpPostRepository`) to prevent namespace collisions when implementing the package in host applications.
 * **Feature:** Upgraded `RatingWidget` to support custom layered SVG stars and animated wipe reveals utilizing `StarArtworkClipper` (with 0.55 visible ratio) and `IconAsset`.

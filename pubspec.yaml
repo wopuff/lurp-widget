@@ -1,6 +1,6 @@
 name: lurp
 description: "A Flutter package to display interactive read-only polls (Selection, Slider, and Rating) and thought posts integrated with the Lurp ecosystem."
-version: 0.1.0
+version: 0.2.0
 homepage: https://www.lurp.it/en
 repository: https://github.com/wopuff/lurp-widget
 issue_tracker: https://github.com/wopuff/lurp-widget/issues
